@@ -25,8 +25,13 @@ class HintSetExploration:
         self.tunable_knobs = self.query_span.get_tunable_knobs()  # the effective query optimizer knobs
         self.current_dp_level = 0
         self.blacklisted_hint_sets = set()  # store configs that resulted in running times worse than the baseline
-        self.hint_sets = self.get_next_hint_sets()
+        self.hint_sets = []  # Initialize empty list
         self.iterator = -1
+        
+        # Initialize first level hint sets
+        for knob in self.tunable_knobs:
+            self.hint_sets.append([knob])
+            
         logger.info('Run %s different configs', len(self.hint_sets))
 
     def dp_combine(self, promising_disabled_opts, previous_configs):
@@ -100,31 +105,37 @@ class HintSetExploration:
 
     # Create the next hint-sets (a.k.a. configs) starting with one disabled optimizer and switch to dynamic programming later
     def get_next_hint_sets(self):
-        n = self.current_dp_level
-        if n > len(self.tunable_knobs) or n > MAX_DP_DEPTH:
-            return None
-        elif n == 0:
-            configs = [[]]
-        elif n == 1:
-            configs = [[opt] for opt in self.tunable_knobs]
-        else:
-            baseline = self.get_baseline()
-            try:
-                # Basic statistics of the default plan (= baseline)
-                median = statistics.median(baseline)
-                mean = statistics.mean(baseline)
-                # Fetch results from previous runs, consider only those hint-sets that were better than the baseline
-                single_optimizers = self.get_promising_measurements_by_num_rules(1, median, mean) + [[key] for key in self.query_span.dependencies]
-                combinations_previous_run = self.get_promising_measurements_by_num_rules(n - 1, median, mean)
-                # Leverage hint-sets from n-1 and combine with n=1
-                configs = self.dp_combine(single_optimizers, combinations_previous_run)
-            except statistics.StatisticsError as err:
-                logger.warning('DP: get_next_hint_sets() results in an ArithmeticError %s', err)
-                configs = None
-        self.current_dp_level += 1
-        # Remove these configs where a knob has unmet dependencies (e.g. its dependent optimizers are not part of the config)
-        configs = list(filter(self.check_config_for_dependencies, configs))
-        return configs
+        """Get the next set of hint sets to explore."""
+        try:
+            if not self.hint_sets:
+                return []
+
+            # Get current stage's hint sets
+            current_stage = self.hint_sets[self.current_dp_level]
+            if not current_stage:
+                return []
+
+            # Filter out configurations that have dependencies
+            configs = list(filter(self.check_config_for_dependencies, current_stage))
+            if not configs:
+                return []
+
+            # Generate next level hint sets
+            next_level = []
+            for config in configs:
+                for knob in self.tunable_knobs:
+                    if knob not in config:
+                        new_config = config + [knob]
+                        if self.check_config_for_dependencies(new_config):
+                            next_level.append(new_config)
+            
+            self.current_dp_level += 1
+            self.hint_sets.append(next_level)
+            return next_level
+
+        except Exception as e:
+            logger.error(f"Error getting next hint sets: {str(e)}")
+            return []
 
     def get_disabled_opts_rules(self):
         if self.hint_sets is None or len(self.hint_sets) == 0 or len(self.hint_sets[self.iterator]) == 0:

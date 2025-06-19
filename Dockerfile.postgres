@@ -1,0 +1,13 @@
+FROM postgres:13
+
+# pg_top 설치 (패키지 이름 수정)
+RUN apt-get update && \
+    apt-get install -y pgtop && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# PostgreSQL 초기화 스크립트
+COPY docker-entrypoint-initdb.d/ /docker-entrypoint-initdb.d/
+
+# 기본 PostgreSQL 실행 명령어 유지
+CMD ["postgres"] 

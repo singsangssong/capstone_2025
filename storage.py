@@ -14,6 +14,8 @@ from sqlalchemy import create_engine, event
 from sqlalchemy.sql import text
 from sqlalchemy.exc import IntegrityError
 import unittest
+import sqlite3
+from typing import Dict
 
 from utils.custom_logging import logger
 from utils.util import read_sql_file
@@ -22,26 +24,92 @@ SCHEMA_FILE = 'schema.sql'
 ENGINE = None
 TESTED_DATABASE = None
 BENCHMARK_ID = None
+DB_PATH = None
+POSTFIX = 0
 
+def init_db(postfix: int):
+    """
+    main.py 에서 한 번만 호출해서
+    storage 모듈 전체에서 쓸 postfix 를 설정
+    """
+    global POSTFIX
+    POSTFIX = postfix
+
+def _get_conn():
+    global DB_PATH
+    if DB_PATH is None:
+        DB_PATH = f"results/{TESTED_DATABASE}_{POSTFIX}.sqlite"
+    return sqlite3.connect(DB_PATH)
+
+# Ensure experiment_tags table exists
+def _ensure_experiment_tags_table():
+    conn = _get_conn()
+    conn.execute("""
+    CREATE TABLE IF NOT EXISTS experiment_tags (
+      benchmark_id INTEGER,
+      tag_key      TEXT,
+      tag_value    TEXT,
+      PRIMARY KEY (benchmark_id, tag_key)
+    )""")
+    conn.commit()
+
+# Create table at module load
+auto_init_conn = _ensure_experiment_tags_table()
+
+
+def set_experiment_tag(tag_key: str, tag_value: str):
+    """
+    저장된 BENCHMARK_ID 기준으로 tag_key=tag_value 를 저장/갱신합니다.
+    """
+    conn = _get_conn()
+    conn.execute(
+        "INSERT OR REPLACE INTO experiment_tags (benchmark_id, tag_key, tag_value) VALUES (?, ?, ?)",
+        (BENCHMARK_ID, tag_key, tag_value)
+    )
+    conn.commit()
+
+
+def get_experiment_tags() -> Dict[str, str]:
+    """
+    현재 BENCHMARK_ID 에 붙은 모든 tag를 {key: value} 형태로 반환합니다.
+    """
+    conn = _get_conn()
+    rows = conn.execute(
+        "SELECT tag_key, tag_value FROM experiment_tags WHERE benchmark_id = ?",
+        (BENCHMARK_ID,)
+    ).fetchall()
+    return {k: v for k, v in rows}
 
 def _db():
     global ENGINE
-    url = f'sqlite:///results/{TESTED_DATABASE}.sqlite'
+    url = f'sqlite:///results/{TESTED_DATABASE}_{POSTFIX}.sqlite'
     logger.debug('Connect to database: %s', url)
+    
+    # 데이터베이스 파일이 존재하지 않는 경우에만 새로 생성
+    db_path = f'results/{TESTED_DATABASE}_{POSTFIX}.sqlite'
+    if not os.path.exists(db_path):
+        logger.info(f'Creating new database file: {db_path}')
+    
     ENGINE = create_engine(url)
 
     @event.listens_for(ENGINE, 'connect')
     def connect(dbapi_conn, _):
         """Load SQLite extension for median calculation"""
-        extension_path = './sqlean-extensions/stats.so'
+        try:
+            extension_path = './sqlean-extensions/stats.so'
+            if not os.path.isfile(extension_path):
+                logger.warning('SQLite extension not found at %s, continuing without extension support', extension_path)
+                return
 
-        if not os.path.isfile(extension_path):
-            logger.fatal('Please, first download the required sqlite3 extension using sqlean-extensions/download.sh')
-            sys.exit(1)
-
-        dbapi_conn.enable_load_extension(True)
-        dbapi_conn.load_extension(extension_path)
-        dbapi_conn.enable_load_extension(False)
+            # SQLite extension loading is not supported in all environments
+            try:
+                dbapi_conn.enable_load_extension(True)
+                dbapi_conn.load_extension(extension_path)
+                dbapi_conn.enable_load_extension(False)
+            except AttributeError:
+                logger.warning('SQLite extension loading not supported in this environment, continuing without extension support')
+        except Exception as e:
+            logger.warning('Failed to load SQLite extension: %s, continuing without extension support', e)
 
     conn = ENGINE.connect()
     schema = read_sql_file(SCHEMA_FILE)
@@ -123,7 +191,7 @@ class Measurement:
         self.walltime = walltime
 
 
-def experience(benchmark=None, training_ratio=0.8):
+def experience(benchmark=None, cpu=None, IO=None, training_ratio=0.8):
     """Get experience to train a neural network"""
     stmt = """SELECT qu.query_path, q.query_id, q.id,  q.disabled_rules, q.num_disabled_rules, q.query_plan, median(walltime)
             FROM measurements m, query_optimizer_configs q, queries qu
@@ -131,11 +199,13 @@ def experience(benchmark=None, training_ratio=0.8):
               AND q.query_plan != 'None' 
               AND qu.id = q.query_id
               AND qu.query_path like :benchmark
+              AND m.cpu_load= :cpu
+              AND m.io_state = :IO
             group by qu.query_path, q.query_id, q.id, q.disabled_rules, q.num_disabled_rules, q.query_plan"""
 
     with _db() as conn:
         benchmark = '%%' if benchmark is None else '%%' + benchmark + '%%'
-        df = pd.read_sql(stmt, conn, params={'benchmark': benchmark})
+        df = pd.read_sql(stmt, conn, params={'benchmark': benchmark, 'cpu': cpu, 'IO': IO})
     rows = [Measurement(*row) for index, row in df.iterrows()]
 
     # Group training and test data by query
@@ -147,6 +217,7 @@ def experience(benchmark=None, training_ratio=0.8):
             result[row.query_id] = [row]
 
     keys = list(result.keys())
+    # random.seed(41) 
     random.shuffle(keys)
     split_index = int(len(keys) * training_ratio)
     train_keys = keys[:split_index]
@@ -236,18 +307,64 @@ def check_for_existing_measurements(query_path, disabled_rules):
     return values[0] > 0
 
 
-def register_measurement(query_path, disabled_rules, walltime, input_data_size, nodes):
-    logger.info('Serialize a new measurement for query %s and the disabled knobs [%s]', query_path, disabled_rules)
+def register_measurement(
+    query_path: str,
+    disabled_rules: str,
+    walltime: int,
+    input_data_size: int,
+    nodes: int,
+    cpu_load: str,
+    io_state: str,
+):
+    """Register a new measurement with CPU load and IO state information"""
+    logger.info(
+        '새로운 측정값 등록 - 쿼리: %s, I/O 상태: [%s], CPU 부하: [%s], 비활성화된 규칙: [%s]',
+        query_path, io_state, cpu_load, disabled_rules
+    )
+    
+    # Validate CPU load value
+    valid_cpu_loads = ['LOW', 'MEDIUM', 'HIGH']
+    if cpu_load not in valid_cpu_loads:
+        logger.warning(f"잘못된 CPU 부하 값: {cpu_load}, 기본값 'LOW' 사용")
+        cpu_load = 'LOW'
+    
     with _db() as conn:
         now = datetime.now()
         query = """
-                INSERT INTO measurements (query_optimizer_config_id, walltime, machine, time, input_data_size, num_compute_nodes)
-                SELECT id, :walltime, :host, :time, :input_data_size, :nodes FROM query_optimizer_configs 
-                WHERE query_id = (SELECT id FROM queries WHERE query_path = :query_path) AND disabled_rules = :disabled_rules 
-                """
-        conn.execute(query, walltime=walltime, host=socket.gethostname(), time=now.strftime('%m/%d/%y, %h:%m:%s'), input_data_size=input_data_size, nodes=nodes,
-                     query_path=query_path, disabled_rules=str(disabled_rules))
-
+            INSERT INTO measurements
+              (query_optimizer_config_id,
+               walltime, machine, time,
+               input_data_size, num_compute_nodes,
+               cpu_load, io_state)
+            SELECT id,
+                   :walltime, :host, :time,
+                   :input_data_size, :nodes,
+                   :cpu_load, :io_state
+              FROM query_optimizer_configs
+             WHERE query_id = (
+                     SELECT id
+                       FROM queries
+                      WHERE query_path = :query_path
+                   )
+               AND disabled_rules = :disabled_rules
+        """
+        try:
+            conn.execute(
+                query,
+                walltime=walltime,
+                host=socket.gethostname(),
+                time=now.strftime('%m/%d/%y, %H:%M:%S'),
+                input_data_size=input_data_size,
+                nodes=nodes,
+                cpu_load=cpu_load,
+                io_state=io_state,
+                query_path=query_path,
+                disabled_rules=disabled_rules
+            )
+            logger.info(f"측정값이 성공적으로 저장되었습니다. (CPU 부하: {cpu_load}, 실행 시간: {walltime}μs)")
+        except Exception as e:
+            logger.error(f"측정값 저장 중 오류 발생: {e}")
+            raise
 
 def median_runtimes():
     class OptimizerConfigResult:

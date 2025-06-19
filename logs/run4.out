@@ -1,0 +1,1132 @@
+Use CUDA: False
+2025-05-04 05:12:56 INFO     Run AutoSteer's training mode
+2025-05-04 05:12:56 INFO     Found the following SQL files: ['1.sql', '10.sql', '11.sql', '12.sql', '13.sql', '14.sql', '15.sql', '16.sql', '17.sql', '18.sql', '19.sql', '2.sql', '20.sql', '21.sql', '22.sql', '3.sql', '4.sql', '5.sql', '6.sql', '7.sql', '8.sql', '9.sql']
+2025-05-04 05:12:56 INFO     run Q1.sql...
+2025-05-04 05:12:56 INFO     Approximate query span for query: benchmark/queries/tpch/1.sql
+2025-05-04 05:12:57 INFO     Default plan hash: #-6205155168599260303
+2025-05-04 05:12:57 INFO     Failed query hash: #-3884599205072274107
+2025-05-04 05:12:57 INFO     There are 3 alternative plans
+2025-05-04 05:12:59 INFO     Found new hint-set: 
+2025-05-04 05:12:59 INFO     Found new hint-set: enable_hashagg
+2025-05-04 05:12:59 INFO     Found new hint-set: enable_indexscan
+2025-05-04 05:12:59 INFO     Found new hint-set: enable_sort
+2025-05-04 05:12:59 INFO     Found new hint-set: enable_seqscan,enable_indexscan
+2025-05-04 05:12:59 INFO     Found new hint-set: enable_bitmapscan,enable_seqscan,enable_indexscan
+2025-05-04 05:12:59 INFO     Start exploring optimizer configs for query benchmark/queries/tpch/1.sql
+2025-05-04 05:12:59 INFO     Run 1 different configs
+2025-05-04 05:14:46 INFO     Serialize a new measurement for query benchmark/queries/tpch/1.sql and the disabled knobs [None]
+2025-05-04 05:15:20 INFO     Serialize a new measurement for query benchmark/queries/tpch/1.sql and the disabled knobs [None]
+2025-05-04 05:15:20 INFO     Enter next DP stage, execute for 4 hint sets/configurations
+2025-05-04 05:15:20 INFO     Plan is already known (according to hash)
+2025-05-04 05:15:59 INFO     Serialize a new measurement for query benchmark/queries/tpch/1.sql and the disabled knobs [enable_hashagg]
+2025-05-04 05:16:31 INFO     Serialize a new measurement for query benchmark/queries/tpch/1.sql and the disabled knobs [enable_hashagg]
+2025-05-04 05:17:09 INFO     Serialize a new measurement for query benchmark/queries/tpch/1.sql and the disabled knobs [enable_sort]
+2025-05-04 05:17:46 INFO     Serialize a new measurement for query benchmark/queries/tpch/1.sql and the disabled knobs [enable_sort]
+2025-05-04 05:17:46 INFO     Plan is already known (according to hash)
+2025-05-04 05:17:46 INFO     Enter next DP stage, execute for 3 hint sets/configurations
+2025-05-04 05:17:46 INFO     Plan is already known (according to hash)
+2025-05-04 05:17:46 INFO     Plan is already known (according to hash)
+2025-05-04 05:17:46 INFO     Plan is already known (according to hash)
+2025-05-04 05:17:47 INFO     Enter next DP stage, execute for 2 hint sets/configurations
+2025-05-04 05:18:23 INFO     Serialize a new measurement for query benchmark/queries/tpch/1.sql and the disabled knobs [enable_bitmapscan,enable_indexscan,enable_seqscan]
+2025-05-04 05:18:52 INFO     Serialize a new measurement for query benchmark/queries/tpch/1.sql and the disabled knobs [enable_bitmapscan,enable_indexscan,enable_seqscan]
+2025-05-04 05:18:52 INFO     Plan is already known (according to hash)
+2025-05-04 05:18:52 INFO     Found 6 duplicated query plans!
+2025-05-04 05:18:52 INFO     run Q10.sql...
+2025-05-04 05:18:52 INFO     Approximate query span for query: benchmark/queries/tpch/10.sql
+2025-05-04 05:18:52 INFO     Default plan hash: #-7151195129968462755
+2025-05-04 05:18:52 INFO     Failed query hash: #-3884599205072274107
+2025-05-04 05:18:52 INFO     There are 6 alternative plans
+2025-05-04 05:18:54 INFO     Found new hint-set: 
+2025-05-04 05:18:54 INFO     Found new hint-set: enable_hashagg
+2025-05-04 05:18:54 INFO     Found new hint-set: enable_hashjoin
+2025-05-04 05:18:54 INFO     Found new hint-set: enable_indexscan
+2025-05-04 05:18:54 INFO     Found new hint-set: enable_nestloop
+2025-05-04 05:18:54 INFO     Found new hint-set: enable_seqscan
+2025-05-04 05:18:54 INFO     Found new hint-set: enable_sort
+2025-05-04 05:18:54 INFO     Found new hint-set: enable_material,enable_hashjoin
+2025-05-04 05:18:54 INFO     Found new hint-set: enable_mergejoin,enable_hashjoin
+2025-05-04 05:18:54 INFO     Found new hint-set: enable_bitmapscan,enable_indexscan
+2025-05-04 05:18:54 INFO     Found new hint-set: enable_mergejoin,enable_material,enable_hashjoin
+2025-05-04 05:18:54 INFO     Found new hint-set: enable_material,enable_mergejoin,enable_hashjoin
+2025-05-04 05:18:54 INFO     Start exploring optimizer configs for query benchmark/queries/tpch/10.sql
+2025-05-04 05:18:54 INFO     Run 1 different configs
+2025-05-04 05:18:55 INFO     Serialize a new measurement for query benchmark/queries/tpch/10.sql and the disabled knobs [None]
+2025-05-04 05:18:56 INFO     Serialize a new measurement for query benchmark/queries/tpch/10.sql and the disabled knobs [None]
+2025-05-04 05:18:56 INFO     Enter next DP stage, execute for 9 hint sets/configurations
+2025-05-04 05:18:56 INFO     Plan is already known (according to hash)
+2025-05-04 05:18:58 INFO     Serialize a new measurement for query benchmark/queries/tpch/10.sql and the disabled knobs [enable_hashagg]
+2025-05-04 05:18:59 INFO     Serialize a new measurement for query benchmark/queries/tpch/10.sql and the disabled knobs [enable_hashagg]
+2025-05-04 05:19:01 INFO     Serialize a new measurement for query benchmark/queries/tpch/10.sql and the disabled knobs [enable_hashjoin]
+2025-05-04 05:19:02 INFO     Serialize a new measurement for query benchmark/queries/tpch/10.sql and the disabled knobs [enable_hashjoin]
+2025-05-04 05:19:02 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:02 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:02 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:03 INFO     Serialize a new measurement for query benchmark/queries/tpch/10.sql and the disabled knobs [enable_seqscan]
+2025-05-04 05:19:04 INFO     Serialize a new measurement for query benchmark/queries/tpch/10.sql and the disabled knobs [enable_seqscan]
+2025-05-04 05:19:06 INFO     Serialize a new measurement for query benchmark/queries/tpch/10.sql and the disabled knobs [enable_sort]
+2025-05-04 05:19:07 INFO     Serialize a new measurement for query benchmark/queries/tpch/10.sql and the disabled knobs [enable_sort]
+2025-05-04 05:19:07 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:07 INFO     Enter next DP stage, execute for 22 hint sets/configurations
+2025-05-04 05:19:07 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:07 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:07 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:08 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:08 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:08 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:08 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:09 INFO     Serialize a new measurement for query benchmark/queries/tpch/10.sql and the disabled knobs [enable_hashagg,enable_hashjoin]
+2025-05-04 05:19:10 INFO     Serialize a new measurement for query benchmark/queries/tpch/10.sql and the disabled knobs [enable_hashagg,enable_hashjoin]
+2025-05-04 05:19:10 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:10 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:11 INFO     Serialize a new measurement for query benchmark/queries/tpch/10.sql and the disabled knobs [enable_hashagg,enable_seqscan]
+2025-05-04 05:19:13 INFO     Serialize a new measurement for query benchmark/queries/tpch/10.sql and the disabled knobs [enable_hashagg,enable_seqscan]
+2025-05-04 05:19:13 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:13 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:13 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:14 INFO     Serialize a new measurement for query benchmark/queries/tpch/10.sql and the disabled knobs [enable_hashjoin,enable_seqscan]
+2025-05-04 05:19:15 INFO     Serialize a new measurement for query benchmark/queries/tpch/10.sql and the disabled knobs [enable_hashjoin,enable_seqscan]
+2025-05-04 05:19:15 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:15 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:15 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:15 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:15 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:15 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:15 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:15 INFO     Enter next DP stage, execute for 26 hint sets/configurations
+2025-05-04 05:19:15 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:15 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:15 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:15 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:15 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:15 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:15 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:15 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:15 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:15 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:15 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:15 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:15 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:15 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:17 INFO     Serialize a new measurement for query benchmark/queries/tpch/10.sql and the disabled knobs [enable_hashagg,enable_hashjoin,enable_seqscan]
+2025-05-04 05:19:18 INFO     Serialize a new measurement for query benchmark/queries/tpch/10.sql and the disabled knobs [enable_hashagg,enable_hashjoin,enable_seqscan]
+2025-05-04 05:19:18 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:18 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:18 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:18 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:18 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:18 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:18 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:18 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:18 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:18 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:18 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:18 INFO     Found 49 duplicated query plans!
+2025-05-04 05:19:18 INFO     run Q11.sql...
+2025-05-04 05:19:18 INFO     Approximate query span for query: benchmark/queries/tpch/11.sql
+2025-05-04 05:19:18 INFO     Default plan hash: #6607186226037644659
+2025-05-04 05:19:18 INFO     Failed query hash: #-3884599205072274107
+2025-05-04 05:19:18 INFO     There are 5 alternative plans
+2025-05-04 05:19:19 INFO     Found new hint-set: 
+2025-05-04 05:19:19 INFO     Found new hint-set: enable_hashagg
+2025-05-04 05:19:19 INFO     Found new hint-set: enable_indexscan
+2025-05-04 05:19:19 INFO     Found new hint-set: enable_nestloop
+2025-05-04 05:19:19 INFO     Found new hint-set: enable_seqscan
+2025-05-04 05:19:19 INFO     Found new hint-set: enable_sort
+2025-05-04 05:19:19 INFO     Found new hint-set: enable_bitmapscan,enable_indexscan
+2025-05-04 05:19:19 INFO     Found new hint-set: enable_mergejoin,enable_nestloop
+2025-05-04 05:19:19 INFO     Found new hint-set: enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:19:19 INFO     Found new hint-set: enable_hashjoin,enable_mergejoin,enable_nestloop
+2025-05-04 05:19:19 INFO     Found new hint-set: enable_mergejoin,enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:19:19 INFO     Found new hint-set: enable_material,enable_hashjoin,enable_mergejoin,enable_nestloop
+2025-05-04 05:19:19 INFO     Found new hint-set: enable_material,enable_mergejoin,enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:19:19 INFO     Start exploring optimizer configs for query benchmark/queries/tpch/11.sql
+2025-05-04 05:19:19 INFO     Run 1 different configs
+2025-05-04 05:19:26 INFO     Serialize a new measurement for query benchmark/queries/tpch/11.sql and the disabled knobs [None]
+2025-05-04 05:19:26 INFO     Serialize a new measurement for query benchmark/queries/tpch/11.sql and the disabled knobs [None]
+2025-05-04 05:19:26 INFO     Enter next DP stage, execute for 4 hint sets/configurations
+2025-05-04 05:19:26 INFO     Serialize a new measurement for query benchmark/queries/tpch/11.sql and the disabled knobs [enable_indexscan]
+2025-05-04 05:19:27 INFO     Serialize a new measurement for query benchmark/queries/tpch/11.sql and the disabled knobs [enable_indexscan]
+2025-05-04 05:19:27 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:27 INFO     Serialize a new measurement for query benchmark/queries/tpch/11.sql and the disabled knobs [enable_seqscan]
+2025-05-04 05:19:27 INFO     Serialize a new measurement for query benchmark/queries/tpch/11.sql and the disabled knobs [enable_seqscan]
+2025-05-04 05:19:27 INFO     Serialize a new measurement for query benchmark/queries/tpch/11.sql and the disabled knobs [enable_sort]
+2025-05-04 05:19:28 INFO     Serialize a new measurement for query benchmark/queries/tpch/11.sql and the disabled knobs [enable_sort]
+2025-05-04 05:19:28 INFO     Enter next DP stage, execute for 2 hint sets/configurations
+2025-05-04 05:19:28 INFO     Serialize a new measurement for query benchmark/queries/tpch/11.sql and the disabled knobs [enable_bitmapscan,enable_indexscan]
+2025-05-04 05:19:29 INFO     Serialize a new measurement for query benchmark/queries/tpch/11.sql and the disabled knobs [enable_bitmapscan,enable_indexscan]
+2025-05-04 05:19:33 INFO     Serialize a new measurement for query benchmark/queries/tpch/11.sql and the disabled knobs [enable_indexscan,enable_seqscan]
+2025-05-04 05:19:37 INFO     Serialize a new measurement for query benchmark/queries/tpch/11.sql and the disabled knobs [enable_indexscan,enable_seqscan]
+2025-05-04 05:19:37 INFO     Enter next DP stage, execute for 0 hint sets/configurations
+2025-05-04 05:19:37 INFO     Found 1 duplicated query plans!
+2025-05-04 05:19:37 INFO     run Q12.sql...
+2025-05-04 05:19:37 INFO     Approximate query span for query: benchmark/queries/tpch/12.sql
+2025-05-04 05:19:37 INFO     Default plan hash: #-2042529708754043004
+2025-05-04 05:19:38 INFO     Failed query hash: #-3884599205072274107
+2025-05-04 05:19:38 INFO     There are 3 alternative plans
+2025-05-04 05:19:44 INFO     Found new hint-set: 
+2025-05-04 05:19:44 INFO     Found new hint-set: enable_indexscan
+2025-05-04 05:19:44 INFO     Found new hint-set: enable_nestloop
+2025-05-04 05:19:44 INFO     Found new hint-set: enable_sort
+2025-05-04 05:19:44 INFO     Found new hint-set: enable_bitmapscan,enable_indexscan
+2025-05-04 05:19:44 INFO     Found new hint-set: enable_seqscan,enable_indexscan
+2025-05-04 05:19:44 INFO     Found new hint-set: enable_hashjoin,enable_nestloop
+2025-05-04 05:19:44 INFO     Found new hint-set: enable_seqscan,enable_nestloop
+2025-05-04 05:19:44 INFO     Found new hint-set: enable_hashagg,enable_sort
+2025-05-04 05:19:44 INFO     Found new hint-set: enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:19:44 INFO     Found new hint-set: enable_seqscan,enable_bitmapscan,enable_indexscan
+2025-05-04 05:19:44 INFO     Found new hint-set: enable_bitmapscan,enable_seqscan,enable_indexscan
+2025-05-04 05:19:44 INFO     Found new hint-set: enable_mergejoin,enable_hashjoin,enable_nestloop
+2025-05-04 05:19:44 INFO     Found new hint-set: enable_mergejoin,enable_seqscan,enable_nestloop
+2025-05-04 05:19:44 INFO     Found new hint-set: enable_mergejoin,enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:19:44 INFO     Found new hint-set: enable_seqscan,enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:19:44 INFO     Found new hint-set: enable_mergejoin,enable_seqscan,enable_bitmapscan,enable_indexscan
+2025-05-04 05:19:44 INFO     Found new hint-set: enable_mergejoin,enable_bitmapscan,enable_seqscan,enable_indexscan
+2025-05-04 05:19:44 INFO     Found new hint-set: enable_hashjoin,enable_mergejoin,enable_seqscan,enable_nestloop
+2025-05-04 05:19:44 INFO     Found new hint-set: enable_material,enable_mergejoin,enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:19:44 INFO     Found new hint-set: enable_seqscan,enable_mergejoin,enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:19:44 INFO     Found new hint-set: enable_mergejoin,enable_seqscan,enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:19:44 INFO     Found new hint-set: enable_hashjoin,enable_mergejoin,enable_seqscan,enable_bitmapscan,enable_indexscan
+2025-05-04 05:19:44 INFO     Found new hint-set: enable_hashjoin,enable_mergejoin,enable_bitmapscan,enable_seqscan,enable_indexscan
+2025-05-04 05:19:44 INFO     Found new hint-set: enable_seqscan,enable_material,enable_mergejoin,enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:19:44 INFO     Found new hint-set: enable_material,enable_seqscan,enable_mergejoin,enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:19:44 INFO     Found new hint-set: enable_material,enable_mergejoin,enable_seqscan,enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:19:44 INFO     Found new hint-set: enable_material,enable_hashjoin,enable_mergejoin,enable_seqscan,enable_bitmapscan,enable_indexscan
+2025-05-04 05:19:44 INFO     Found new hint-set: enable_material,enable_hashjoin,enable_mergejoin,enable_bitmapscan,enable_seqscan,enable_indexscan
+2025-05-04 05:19:45 INFO     Start exploring optimizer configs for query benchmark/queries/tpch/12.sql
+2025-05-04 05:19:45 INFO     Run 1 different configs
+2025-05-04 05:19:49 INFO     Serialize a new measurement for query benchmark/queries/tpch/12.sql and the disabled knobs [None]
+2025-05-04 05:19:51 INFO     Serialize a new measurement for query benchmark/queries/tpch/12.sql and the disabled knobs [None]
+2025-05-04 05:19:51 INFO     Enter next DP stage, execute for 4 hint sets/configurations
+2025-05-04 05:19:51 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:51 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:54 INFO     Serialize a new measurement for query benchmark/queries/tpch/12.sql and the disabled knobs [enable_sort]
+2025-05-04 05:19:56 INFO     Serialize a new measurement for query benchmark/queries/tpch/12.sql and the disabled knobs [enable_sort]
+2025-05-04 05:19:56 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:56 INFO     Enter next DP stage, execute for 7 hint sets/configurations
+2025-05-04 05:19:56 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:56 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:56 INFO     Plan is already known (according to hash)
+2025-05-04 05:19:58 INFO     Serialize a new measurement for query benchmark/queries/tpch/12.sql and the disabled knobs [enable_hashagg,enable_sort]
+2025-05-04 05:20:01 INFO     Serialize a new measurement for query benchmark/queries/tpch/12.sql and the disabled knobs [enable_hashagg,enable_sort]
+2025-05-04 05:20:01 INFO     Plan is already known (according to hash)
+2025-05-04 05:20:01 INFO     Plan is already known (according to hash)
+2025-05-04 05:20:01 INFO     Plan is already known (according to hash)
+2025-05-04 05:20:01 INFO     Enter next DP stage, execute for 7 hint sets/configurations
+2025-05-04 05:20:01 INFO     Plan is already known (according to hash)
+2025-05-04 05:20:01 INFO     Plan is already known (according to hash)
+2025-05-04 05:20:01 INFO     Plan is already known (according to hash)
+2025-05-04 05:20:01 INFO     Plan is already known (according to hash)
+2025-05-04 05:20:01 INFO     Plan is already known (according to hash)
+2025-05-04 05:20:01 INFO     Plan is already known (according to hash)
+2025-05-04 05:20:01 INFO     Plan is already known (according to hash)
+2025-05-04 05:20:01 INFO     Found 16 duplicated query plans!
+2025-05-04 05:20:01 INFO     run Q13.sql...
+2025-05-04 05:20:01 INFO     Approximate query span for query: benchmark/queries/tpch/13.sql
+2025-05-04 05:20:01 INFO     Default plan hash: #331537894226158373
+2025-05-04 05:20:01 INFO     Failed query hash: #-3884599205072274107
+2025-05-04 05:20:01 INFO     There are 5 alternative plans
+2025-05-04 05:20:04 INFO     Found new hint-set: 
+2025-05-04 05:20:04 INFO     Found new hint-set: enable_hashagg
+2025-05-04 05:20:04 INFO     Found new hint-set: enable_indexonlyscan
+2025-05-04 05:20:04 INFO     Found new hint-set: enable_indexscan
+2025-05-04 05:20:04 INFO     Found new hint-set: enable_mergejoin
+2025-05-04 05:20:04 INFO     Found new hint-set: enable_sort
+2025-05-04 05:20:04 INFO     Found new hint-set: enable_hashjoin,enable_indexscan
+2025-05-04 05:20:04 INFO     Found new hint-set: enable_seqscan,enable_indexscan
+2025-05-04 05:20:04 INFO     Found new hint-set: enable_hashjoin,enable_mergejoin
+2025-05-04 05:20:04 INFO     Found new hint-set: enable_seqscan,enable_mergejoin
+2025-05-04 05:20:04 INFO     Found new hint-set: enable_seqscan,enable_hashjoin,enable_indexscan
+2025-05-04 05:20:04 INFO     Found new hint-set: enable_bitmapscan,enable_seqscan,enable_indexscan
+2025-05-04 05:20:04 INFO     Found new hint-set: enable_nestloop,enable_seqscan,enable_indexscan
+2025-05-04 05:20:04 INFO     Found new hint-set: enable_nestloop,enable_hashjoin,enable_mergejoin
+2025-05-04 05:20:04 INFO     Found new hint-set: enable_hashjoin,enable_seqscan,enable_mergejoin
+2025-05-04 05:20:04 INFO     Found new hint-set: enable_bitmapscan,enable_seqscan,enable_hashjoin,enable_indexscan
+2025-05-04 05:20:04 INFO     Found new hint-set: enable_nestloop,enable_seqscan,enable_hashjoin,enable_indexscan
+2025-05-04 05:20:04 INFO     Found new hint-set: enable_nestloop,enable_hashjoin,enable_seqscan,enable_mergejoin
+2025-05-04 05:20:04 INFO     Start exploring optimizer configs for query benchmark/queries/tpch/13.sql
+2025-05-04 05:20:04 INFO     Run 1 different configs
+2025-05-04 05:20:10 INFO     Serialize a new measurement for query benchmark/queries/tpch/13.sql and the disabled knobs [None]
+2025-05-04 05:20:15 INFO     Serialize a new measurement for query benchmark/queries/tpch/13.sql and the disabled knobs [None]
+2025-05-04 05:20:15 INFO     Enter next DP stage, execute for 6 hint sets/configurations
+2025-05-04 05:20:15 INFO     Plan is already known (according to hash)
+2025-05-04 05:20:20 INFO     Serialize a new measurement for query benchmark/queries/tpch/13.sql and the disabled knobs [enable_hashagg]
+2025-05-04 05:20:26 INFO     Serialize a new measurement for query benchmark/queries/tpch/13.sql and the disabled knobs [enable_hashagg]
+2025-05-04 05:20:31 INFO     Serialize a new measurement for query benchmark/queries/tpch/13.sql and the disabled knobs [enable_indexonlyscan]
+2025-05-04 05:20:37 INFO     Serialize a new measurement for query benchmark/queries/tpch/13.sql and the disabled knobs [enable_indexonlyscan]
+2025-05-04 05:20:37 INFO     Plan is already known (according to hash)
+2025-05-04 05:20:42 INFO     Serialize a new measurement for query benchmark/queries/tpch/13.sql and the disabled knobs [enable_sort]
+2025-05-04 05:20:47 INFO     Serialize a new measurement for query benchmark/queries/tpch/13.sql and the disabled knobs [enable_sort]
+2025-05-04 05:20:47 INFO     Plan is already known (according to hash)
+2025-05-04 05:20:47 INFO     Enter next DP stage, execute for 10 hint sets/configurations
+2025-05-04 05:20:47 INFO     Plan is already known (according to hash)
+2025-05-04 05:20:47 INFO     Plan is already known (according to hash)
+2025-05-04 05:20:47 INFO     Plan is already known (according to hash)
+2025-05-04 05:20:47 INFO     Plan is already known (according to hash)
+2025-05-04 05:20:47 INFO     Plan is already known (according to hash)
+2025-05-04 05:20:48 INFO     Plan is already known (according to hash)
+2025-05-04 05:20:53 INFO     Serialize a new measurement for query benchmark/queries/tpch/13.sql and the disabled knobs [enable_hashagg,enable_sort]
+2025-05-04 05:20:58 INFO     Plan is already known (according to hash)
+2025-05-04 05:20:58 INFO     Serialize a new measurement for query benchmark/queries/tpch/13.sql and the disabled knobs [enable_hashagg,enable_sort]
+2025-05-04 05:20:58 INFO     config results in already known query plan!
+2025-05-04 05:20:58 INFO     Plan is already known (according to hash)
+2025-05-04 05:20:59 INFO     Plan is already known (according to hash)
+2025-05-04 05:20:59 INFO     Plan is already known (according to hash)
+2025-05-04 05:20:59 INFO     Enter next DP stage, execute for 10 hint sets/configurations
+2025-05-04 05:20:59 INFO     Plan is already known (according to hash)
+2025-05-04 05:20:59 INFO     Plan is already known (according to hash)
+2025-05-04 05:20:59 INFO     Plan is already known (according to hash)
+2025-05-04 05:20:59 INFO     Plan is already known (according to hash)
+2025-05-04 05:20:59 INFO     Plan is already known (according to hash)
+2025-05-04 05:20:59 INFO     Plan is already known (according to hash)
+2025-05-04 05:20:59 INFO     Plan is already known (according to hash)
+2025-05-04 05:21:04 INFO     Serialize a new measurement for query benchmark/queries/tpch/13.sql and the disabled knobs [enable_hashagg,enable_indexonlyscan,enable_sort]
+2025-05-04 05:21:10 INFO     Serialize a new measurement for query benchmark/queries/tpch/13.sql and the disabled knobs [enable_hashagg,enable_indexonlyscan,enable_sort]
+2025-05-04 05:21:13 INFO     Serialize a new measurement for query benchmark/queries/tpch/13.sql and the disabled knobs [enable_hashagg,enable_indexscan,enable_sort]
+2025-05-04 05:21:16 INFO     Serialize a new measurement for query benchmark/queries/tpch/13.sql and the disabled knobs [enable_hashagg,enable_indexscan,enable_sort]
+2025-05-04 05:21:16 INFO     Plan is already known (according to hash)
+2025-05-04 05:21:16 INFO     Found 20 duplicated query plans!
+2025-05-04 05:21:16 INFO     run Q14.sql...
+2025-05-04 05:21:16 INFO     Approximate query span for query: benchmark/queries/tpch/14.sql
+2025-05-04 05:21:16 INFO     Default plan hash: #5982781726871259907
+2025-05-04 05:21:16 INFO     Failed query hash: #-3884599205072274107
+2025-05-04 05:21:16 INFO     There are 3 alternative plans
+2025-05-04 05:21:18 INFO     Found new hint-set: 
+2025-05-04 05:21:18 INFO     Found new hint-set: enable_hashjoin
+2025-05-04 05:21:18 INFO     Found new hint-set: enable_indexscan
+2025-05-04 05:21:18 INFO     Found new hint-set: enable_seqscan
+2025-05-04 05:21:18 INFO     Found new hint-set: enable_mergejoin,enable_hashjoin
+2025-05-04 05:21:18 INFO     Found new hint-set: enable_sort,enable_hashjoin
+2025-05-04 05:21:18 INFO     Found new hint-set: enable_bitmapscan,enable_indexscan
+2025-05-04 05:21:18 INFO     Found new hint-set: enable_nestloop,enable_mergejoin,enable_hashjoin
+2025-05-04 05:21:18 INFO     Found new hint-set: enable_nestloop,enable_sort,enable_hashjoin
+2025-05-04 05:21:18 INFO     Found new hint-set: enable_mergejoin,enable_nestloop,enable_sort,enable_hashjoin
+2025-05-04 05:21:18 INFO     Start exploring optimizer configs for query benchmark/queries/tpch/14.sql
+2025-05-04 05:21:18 INFO     Run 1 different configs
+2025-05-04 05:21:19 INFO     Serialize a new measurement for query benchmark/queries/tpch/14.sql and the disabled knobs [None]
+2025-05-04 05:21:20 INFO     Serialize a new measurement for query benchmark/queries/tpch/14.sql and the disabled knobs [None]
+2025-05-04 05:21:20 INFO     Enter next DP stage, execute for 4 hint sets/configurations
+2025-05-04 05:21:21 INFO     Serialize a new measurement for query benchmark/queries/tpch/14.sql and the disabled knobs [enable_hashjoin]
+2025-05-04 05:21:21 INFO     Serialize a new measurement for query benchmark/queries/tpch/14.sql and the disabled knobs [enable_hashjoin]
+2025-05-04 05:21:21 INFO     Plan is already known (according to hash)
+2025-05-04 05:21:22 INFO     Serialize a new measurement for query benchmark/queries/tpch/14.sql and the disabled knobs [enable_seqscan]
+2025-05-04 05:21:22 INFO     Serialize a new measurement for query benchmark/queries/tpch/14.sql and the disabled knobs [enable_seqscan]
+2025-05-04 05:21:22 INFO     Plan is already known (according to hash)
+2025-05-04 05:21:23 INFO     Enter next DP stage, execute for 6 hint sets/configurations
+2025-05-04 05:21:23 INFO     Plan is already known (according to hash)
+2025-05-04 05:21:23 INFO     Plan is already known (according to hash)
+2025-05-04 05:21:23 INFO     Plan is already known (according to hash)
+2025-05-04 05:21:23 INFO     Plan is already known (according to hash)
+2025-05-04 05:21:23 INFO     Plan is already known (according to hash)
+2025-05-04 05:21:23 INFO     Plan is already known (according to hash)
+2025-05-04 05:21:23 INFO     Enter next DP stage, execute for 2 hint sets/configurations
+2025-05-04 05:21:23 INFO     Plan is already known (according to hash)
+2025-05-04 05:21:23 INFO     Plan is already known (according to hash)
+2025-05-04 05:21:23 INFO     Found 10 duplicated query plans!
+2025-05-04 05:21:23 INFO     run Q15.sql...
+2025-05-04 05:21:23 INFO     Approximate query span for query: benchmark/queries/tpch/15.sql
+2025-05-04 05:21:23 INFO     Default plan hash: #-2314105732415657506
+2025-05-04 05:21:23 INFO     Failed query hash: #-3884599205072274107
+2025-05-04 05:21:23 INFO     There are 4 alternative plans
+2025-05-04 05:21:28 INFO     Found new hint-set: 
+2025-05-04 05:21:28 INFO     Found new hint-set: enable_hashagg
+2025-05-04 05:21:28 INFO     Found new hint-set: enable_indexscan
+2025-05-04 05:21:28 INFO     Found new hint-set: enable_nestloop
+2025-05-04 05:21:28 INFO     Found new hint-set: enable_sort
+2025-05-04 05:21:28 INFO     Found new hint-set: enable_bitmapscan,enable_indexscan
+2025-05-04 05:21:28 INFO     Found new hint-set: enable_hashjoin,enable_nestloop
+2025-05-04 05:21:28 INFO     Found new hint-set: enable_seqscan,enable_nestloop
+2025-05-04 05:21:28 INFO     Found new hint-set: enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:21:28 INFO     Found new hint-set: enable_seqscan,enable_bitmapscan,enable_indexscan
+2025-05-04 05:21:28 INFO     Found new hint-set: enable_mergejoin,enable_hashjoin,enable_nestloop
+2025-05-04 05:21:28 INFO     Found new hint-set: enable_mergejoin,enable_seqscan,enable_nestloop
+2025-05-04 05:21:28 INFO     Found new hint-set: enable_mergejoin,enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:21:28 INFO     Found new hint-set: enable_seqscan,enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:21:28 INFO     Found new hint-set: enable_mergejoin,enable_seqscan,enable_bitmapscan,enable_indexscan
+2025-05-04 05:21:28 INFO     Found new hint-set: enable_hashjoin,enable_mergejoin,enable_seqscan,enable_nestloop
+2025-05-04 05:21:28 INFO     Found new hint-set: enable_seqscan,enable_mergejoin,enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:21:28 INFO     Found new hint-set: enable_mergejoin,enable_seqscan,enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:21:28 INFO     Start exploring optimizer configs for query benchmark/queries/tpch/15.sql
+2025-05-04 05:21:28 INFO     Run 1 different configs
+2025-05-04 05:21:29 INFO     Serialize a new measurement for query benchmark/queries/tpch/15.sql and the disabled knobs [None]
+2025-05-04 05:21:31 INFO     Serialize a new measurement for query benchmark/queries/tpch/15.sql and the disabled knobs [None]
+2025-05-04 05:21:31 INFO     Enter next DP stage, execute for 6 hint sets/configurations
+2025-05-04 05:21:31 INFO     Plan is already known (according to hash)
+2025-05-04 05:21:32 INFO     Serialize a new measurement for query benchmark/queries/tpch/15.sql and the disabled knobs [enable_hashagg]
+2025-05-04 05:21:33 INFO     Serialize a new measurement for query benchmark/queries/tpch/15.sql and the disabled knobs [enable_hashagg]
+2025-05-04 05:21:34 INFO     Serialize a new measurement for query benchmark/queries/tpch/15.sql and the disabled knobs [enable_indexscan]
+2025-05-04 05:21:34 INFO     Serialize a new measurement for query benchmark/queries/tpch/15.sql and the disabled knobs [enable_indexscan]
+2025-05-04 05:21:36 INFO     Serialize a new measurement for query benchmark/queries/tpch/15.sql and the disabled knobs [enable_nestloop]
+2025-05-04 05:21:37 INFO     Serialize a new measurement for query benchmark/queries/tpch/15.sql and the disabled knobs [enable_nestloop]
+2025-05-04 05:21:54 INFO     Serialize a new measurement for query benchmark/queries/tpch/15.sql and the disabled knobs [enable_sort]
+2025-05-04 05:22:10 INFO     Serialize a new measurement for query benchmark/queries/tpch/15.sql and the disabled knobs [enable_sort]
+2025-05-04 05:22:10 INFO     Plan is already known (according to hash)
+2025-05-04 05:22:10 INFO     Enter next DP stage, execute for 11 hint sets/configurations
+2025-05-04 05:22:11 INFO     Serialize a new measurement for query benchmark/queries/tpch/15.sql and the disabled knobs [enable_bitmapscan,enable_indexscan]
+2025-05-04 05:22:12 INFO     Serialize a new measurement for query benchmark/queries/tpch/15.sql and the disabled knobs [enable_bitmapscan,enable_indexscan]
+2025-05-04 05:22:13 INFO     Plan is already known (according to hash)
+2025-05-04 05:22:13 INFO     Plan is already known (according to hash)
+2025-05-04 05:22:13 INFO     Plan is already known (according to hash)
+2025-05-04 05:22:13 INFO     Plan is already known (according to hash)
+2025-05-04 05:22:13 INFO     Serialize a new measurement for query benchmark/queries/tpch/15.sql and the disabled knobs [enable_hashagg,enable_indexscan]
+2025-05-04 05:22:14 INFO     Serialize a new measurement for query benchmark/queries/tpch/15.sql and the disabled knobs [enable_hashagg,enable_indexscan]
+2025-05-04 05:22:14 INFO     Serialize a new measurement for query benchmark/queries/tpch/15.sql and the disabled knobs [enable_hashagg,enable_nestloop]
+2025-05-04 05:22:15 INFO     Serialize a new measurement for query benchmark/queries/tpch/15.sql and the disabled knobs [enable_hashagg,enable_nestloop]
+2025-05-04 05:22:15 INFO     Plan is already known (according to hash)
+2025-05-04 05:22:16 INFO     Serialize a new measurement for query benchmark/queries/tpch/15.sql and the disabled knobs [enable_indexscan,enable_nestloop]
+2025-05-04 05:22:17 INFO     Serialize a new measurement for query benchmark/queries/tpch/15.sql and the disabled knobs [enable_indexscan,enable_nestloop]
+2025-05-04 05:22:17 INFO     Plan is already known (according to hash)
+2025-05-04 05:22:17 INFO     Plan is already known (according to hash)
+2025-05-04 05:22:17 INFO     Enter next DP stage, execute for 10 hint sets/configurations
+2025-05-04 05:22:17 INFO     Plan is already known (according to hash)
+2025-05-04 05:22:17 INFO     Plan is already known (according to hash)
+2025-05-04 05:22:17 INFO     Plan is already known (according to hash)
+2025-05-04 05:22:17 INFO     Plan is already known (according to hash)
+2025-05-04 05:22:17 INFO     Plan is already known (according to hash)
+2025-05-04 05:22:17 INFO     Plan is already known (according to hash)
+2025-05-04 05:22:18 INFO     Serialize a new measurement for query benchmark/queries/tpch/15.sql and the disabled knobs [enable_hashagg,enable_indexscan,enable_nestloop]
+2025-05-04 05:22:18 INFO     Serialize a new measurement for query benchmark/queries/tpch/15.sql and the disabled knobs [enable_hashagg,enable_indexscan,enable_nestloop]
+2025-05-04 05:22:18 INFO     Plan is already known (according to hash)
+2025-05-04 05:22:18 INFO     Plan is already known (according to hash)
+2025-05-04 05:22:18 INFO     Plan is already known (according to hash)
+2025-05-04 05:22:18 INFO     Found 18 duplicated query plans!
+2025-05-04 05:22:18 INFO     run Q16.sql...
+2025-05-04 05:22:18 INFO     Approximate query span for query: benchmark/queries/tpch/16.sql
+2025-05-04 05:22:18 INFO     Default plan hash: #348408880484147628
+2025-05-04 05:22:18 INFO     Failed query hash: #-3884599205072274107
+2025-05-04 05:22:18 INFO     There are 5 alternative plans
+2025-05-04 05:22:19 INFO     Found new hint-set: 
+2025-05-04 05:22:19 INFO     Found new hint-set: enable_hashjoin
+2025-05-04 05:22:19 INFO     Found new hint-set: enable_indexonlyscan
+2025-05-04 05:22:19 INFO     Found new hint-set: enable_indexscan
+2025-05-04 05:22:19 INFO     Found new hint-set: enable_seqscan
+2025-05-04 05:22:19 INFO     Found new hint-set: enable_sort
+2025-05-04 05:22:19 INFO     Found new hint-set: enable_mergejoin,enable_hashjoin
+2025-05-04 05:22:19 INFO     Found new hint-set: enable_mergejoin,enable_seqscan
+2025-05-04 05:22:19 INFO     Found new hint-set: enable_nestloop,enable_mergejoin,enable_hashjoin
+2025-05-04 05:22:19 INFO     Start exploring optimizer configs for query benchmark/queries/tpch/16.sql
+2025-05-04 05:22:19 INFO     Run 1 different configs
+2025-05-04 05:22:22 INFO     Serialize a new measurement for query benchmark/queries/tpch/16.sql and the disabled knobs [None]
+2025-05-04 05:22:25 INFO     Serialize a new measurement for query benchmark/queries/tpch/16.sql and the disabled knobs [None]
+2025-05-04 05:22:25 INFO     Enter next DP stage, execute for 6 hint sets/configurations
+2025-05-04 05:22:25 INFO     Plan is already known (according to hash)
+2025-05-04 05:22:28 INFO     Serialize a new measurement for query benchmark/queries/tpch/16.sql and the disabled knobs [enable_indexonlyscan]
+2025-05-04 05:22:31 INFO     Serialize a new measurement for query benchmark/queries/tpch/16.sql and the disabled knobs [enable_indexonlyscan]
+2025-05-04 05:22:31 INFO     Plan is already known (according to hash)
+2025-05-04 05:22:33 INFO     Serialize a new measurement for query benchmark/queries/tpch/16.sql and the disabled knobs [enable_seqscan]
+2025-05-04 05:22:37 INFO     Serialize a new measurement for query benchmark/queries/tpch/16.sql and the disabled knobs [enable_seqscan]
+2025-05-04 05:22:41 INFO     Serialize a new measurement for query benchmark/queries/tpch/16.sql and the disabled knobs [enable_sort]
+2025-05-04 05:22:44 INFO     Serialize a new measurement for query benchmark/queries/tpch/16.sql and the disabled knobs [enable_sort]
+2025-05-04 05:22:44 INFO     Plan is already known (according to hash)
+2025-05-04 05:22:44 INFO     Enter next DP stage, execute for 6 hint sets/configurations
+2025-05-04 05:22:44 INFO     Plan is already known (according to hash)
+2025-05-04 05:22:44 INFO     Plan is already known (according to hash)
+2025-05-04 05:22:44 INFO     Plan is already known (according to hash)
+2025-05-04 05:22:44 INFO     Plan is already known (according to hash)
+2025-05-04 05:22:44 INFO     Plan is already known (according to hash)
+2025-05-04 05:22:44 INFO     Plan is already known (according to hash)
+2025-05-04 05:22:45 INFO     Enter next DP stage, execute for 2 hint sets/configurations
+2025-05-04 05:22:45 INFO     Plan is already known (according to hash)
+2025-05-04 05:22:45 INFO     Plan is already known (according to hash)
+2025-05-04 05:22:45 INFO     Found 11 duplicated query plans!
+2025-05-04 05:22:45 INFO     run Q17.sql...
+2025-05-04 05:22:45 INFO     Approximate query span for query: benchmark/queries/tpch/17.sql
+2025-05-04 05:22:45 INFO     Default plan hash: #5477988535461654364
+2025-05-04 05:22:45 INFO     Failed query hash: #-3884599205072274107
+2025-05-04 05:22:45 INFO     There are 3 alternative plans
+2025-05-04 05:22:46 INFO     Found new hint-set: 
+2025-05-04 05:22:46 INFO     Found new hint-set: enable_hashjoin
+2025-05-04 05:22:46 INFO     Found new hint-set: enable_indexscan
+2025-05-04 05:22:46 INFO     Found new hint-set: enable_seqscan
+2025-05-04 05:22:46 INFO     Found new hint-set: enable_nestloop,enable_hashjoin
+2025-05-04 05:22:46 INFO     Found new hint-set: enable_bitmapscan,enable_indexscan
+2025-05-04 05:22:46 INFO     Found new hint-set: enable_nestloop,enable_indexscan
+2025-05-04 05:22:46 INFO     Found new hint-set: enable_mergejoin,enable_nestloop,enable_hashjoin
+2025-05-04 05:22:46 INFO     Found new hint-set: enable_bitmapscan,enable_nestloop,enable_indexscan
+2025-05-04 05:22:46 INFO     Start exploring optimizer configs for query benchmark/queries/tpch/17.sql
+2025-05-04 05:22:46 INFO     Run 1 different configs
+2025-05-04 05:23:11 INFO     Serialize a new measurement for query benchmark/queries/tpch/17.sql and the disabled knobs [None]
+2025-05-04 05:23:42 INFO     Serialize a new measurement for query benchmark/queries/tpch/17.sql and the disabled knobs [None]
+2025-05-04 05:23:42 INFO     Enter next DP stage, execute for 3 hint sets/configurations
+2025-05-04 05:23:42 INFO     Serialize a new measurement for query benchmark/queries/tpch/17.sql and the disabled knobs [enable_hashjoin]
+2025-05-04 05:23:42 INFO     Serialize a new measurement for query benchmark/queries/tpch/17.sql and the disabled knobs [enable_hashjoin]
+2025-05-04 05:24:20 INFO     Serialize a new measurement for query benchmark/queries/tpch/17.sql and the disabled knobs [enable_seqscan]
+2025-05-04 05:24:56 INFO     Serialize a new measurement for query benchmark/queries/tpch/17.sql and the disabled knobs [enable_seqscan]
+2025-05-04 05:24:56 INFO     Plan is already known (according to hash)
+2025-05-04 05:24:56 INFO     Enter next DP stage, execute for 1 hint sets/configurations
+2025-05-04 05:24:56 INFO     Plan is already known (according to hash)
+2025-05-04 05:24:56 INFO     Enter next DP stage, execute for 0 hint sets/configurations
+2025-05-04 05:24:56 INFO     Found 2 duplicated query plans!
+2025-05-04 05:24:56 INFO     run Q18.sql...
+2025-05-04 05:24:56 INFO     Approximate query span for query: benchmark/queries/tpch/18.sql
+2025-05-04 05:24:57 INFO     Default plan hash: #-5224291058716796816
+2025-05-04 05:24:57 INFO     Failed query hash: #-3884599205072274107
+2025-05-04 05:24:57 INFO     There are 6 alternative plans
+2025-05-04 05:24:58 INFO     Found new hint-set: 
+2025-05-04 05:24:58 INFO     Found new hint-set: enable_hashagg
+2025-05-04 05:24:58 INFO     Found new hint-set: enable_hashjoin
+2025-05-04 05:24:58 INFO     Found new hint-set: enable_indexscan
+2025-05-04 05:24:58 INFO     Found new hint-set: enable_nestloop
+2025-05-04 05:24:58 INFO     Found new hint-set: enable_seqscan
+2025-05-04 05:24:58 INFO     Found new hint-set: enable_sort
+2025-05-04 05:24:58 INFO     Found new hint-set: enable_mergejoin,enable_hashjoin
+2025-05-04 05:24:58 INFO     Found new hint-set: enable_bitmapscan,enable_indexscan
+2025-05-04 05:24:58 INFO     Found new hint-set: enable_mergejoin,enable_nestloop
+2025-05-04 05:24:58 INFO     Start exploring optimizer configs for query benchmark/queries/tpch/18.sql
+2025-05-04 05:24:58 INFO     Run 1 different configs
+2025-05-04 05:25:07 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [None]
+2025-05-04 05:25:14 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [None]
+2025-05-04 05:25:14 INFO     Enter next DP stage, execute for 9 hint sets/configurations
+2025-05-04 05:25:14 INFO     Plan is already known (according to hash)
+2025-05-04 05:25:21 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_hashagg]
+2025-05-04 05:25:29 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_hashagg]
+2025-05-04 05:25:32 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_hashjoin]
+2025-05-04 05:25:34 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_hashjoin]
+2025-05-04 05:25:34 INFO     Plan is already known (according to hash)
+2025-05-04 05:25:43 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_nestloop]
+2025-05-04 05:25:50 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_nestloop]
+2025-05-04 05:25:50 INFO     Plan is already known (according to hash)
+2025-05-04 05:25:57 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_seqscan]
+2025-05-04 05:26:03 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_seqscan]
+2025-05-04 05:26:10 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_sort]
+2025-05-04 05:26:17 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_sort]
+2025-05-04 05:26:17 INFO     Plan is already known (according to hash)
+2025-05-04 05:26:17 INFO     Enter next DP stage, execute for 29 hint sets/configurations
+2025-05-04 05:26:17 INFO     Plan is already known (according to hash)
+2025-05-04 05:26:17 INFO     Plan is already known (according to hash)
+2025-05-04 05:26:17 INFO     Plan is already known (according to hash)
+2025-05-04 05:26:17 INFO     Plan is already known (according to hash)
+2025-05-04 05:26:17 INFO     Plan is already known (according to hash)
+2025-05-04 05:26:17 INFO     Plan is already known (according to hash)
+2025-05-04 05:26:17 INFO     Plan is already known (according to hash)
+2025-05-04 05:26:17 INFO     Plan is already known (according to hash)
+2025-05-04 05:26:20 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_hashagg,enable_hashjoin]
+2025-05-04 05:26:22 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_hashagg,enable_hashjoin]
+2025-05-04 05:26:22 INFO     Plan is already known (according to hash)
+2025-05-04 05:26:22 INFO     Plan is already known (according to hash)
+2025-05-04 05:26:30 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_hashagg,enable_seqscan]
+2025-05-04 05:26:36 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_hashagg,enable_seqscan]
+2025-05-04 05:26:43 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_hashagg,enable_sort]
+2025-05-04 05:26:49 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_hashagg,enable_sort]
+2025-05-04 05:26:49 INFO     Plan is already known (according to hash)
+2025-05-04 05:26:49 INFO     Plan is already known (according to hash)
+2025-05-04 05:26:49 INFO     Plan is already known (according to hash)
+2025-05-04 05:26:51 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_hashjoin,enable_seqscan]
+2025-05-04 05:26:54 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_hashjoin,enable_seqscan]
+2025-05-04 05:26:54 INFO     Plan is already known (according to hash)
+2025-05-04 05:26:54 INFO     Plan is already known (according to hash)
+2025-05-04 05:26:54 INFO     Plan is already known (according to hash)
+2025-05-04 05:26:54 INFO     Plan is already known (according to hash)
+2025-05-04 05:26:54 INFO     Plan is already known (according to hash)
+2025-05-04 05:26:54 INFO     Plan is already known (according to hash)
+2025-05-04 05:26:54 INFO     Plan is already known (according to hash)
+2025-05-04 05:26:54 INFO     Plan is already known (according to hash)
+2025-05-04 05:26:54 INFO     Plan is already known (according to hash)
+2025-05-04 05:27:00 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_seqscan,enable_sort]
+2025-05-04 05:27:06 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_seqscan,enable_sort]
+2025-05-04 05:27:06 INFO     Plan is already known (according to hash)
+2025-05-04 05:27:06 INFO     Plan is already known (according to hash)
+2025-05-04 05:27:07 INFO     Enter next DP stage, execute for 63 hint sets/configurations
+2025-05-04 05:27:07 INFO     Plan is already known (according to hash)
+2025-05-04 05:27:11 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_bitmapscan,enable_hashagg,enable_indexscan]
+2025-05-04 05:27:18 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_bitmapscan,enable_hashagg,enable_indexscan]
+2025-05-04 05:27:27 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_bitmapscan,enable_hashjoin,enable_indexscan]
+2025-05-04 05:27:33 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_bitmapscan,enable_hashjoin,enable_indexscan]
+2025-05-04 05:27:33 INFO     Plan is already known (according to hash)
+2025-05-04 05:27:36 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_bitmapscan,enable_indexscan,enable_seqscan]
+2025-05-04 05:27:39 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_bitmapscan,enable_indexscan,enable_seqscan]
+2025-05-04 05:27:45 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_bitmapscan,enable_indexscan,enable_sort]
+2025-05-04 05:27:49 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_bitmapscan,enable_indexscan,enable_sort]
+2025-05-04 05:27:49 INFO     Plan is already known (according to hash)
+2025-05-04 05:27:49 INFO     Plan is already known (according to hash)
+2025-05-04 05:27:49 INFO     Plan is already known (according to hash)
+2025-05-04 05:27:49 INFO     Plan is already known (according to hash)
+2025-05-04 05:27:49 INFO     Plan is already known (according to hash)
+2025-05-04 05:27:49 INFO     Plan is already known (according to hash)
+2025-05-04 05:27:49 INFO     Plan is already known (according to hash)
+2025-05-04 05:27:49 INFO     Plan is already known (according to hash)
+2025-05-04 05:27:49 INFO     Plan is already known (according to hash)
+2025-05-04 05:27:49 INFO     Plan is already known (according to hash)
+2025-05-04 05:27:49 INFO     Plan is already known (according to hash)
+2025-05-04 05:27:49 INFO     Plan is already known (according to hash)
+2025-05-04 05:27:49 INFO     Plan is already known (according to hash)
+2025-05-04 05:27:49 INFO     Plan is already known (according to hash)
+2025-05-04 05:27:49 INFO     Plan is already known (according to hash)
+2025-05-04 05:27:50 INFO     Plan is already known (according to hash)
+2025-05-04 05:27:50 INFO     Plan is already known (according to hash)
+2025-05-04 05:27:50 INFO     Plan is already known (according to hash)
+2025-05-04 05:27:50 INFO     Plan is already known (according to hash)
+2025-05-04 05:27:50 INFO     Plan is already known (according to hash)
+2025-05-04 05:27:50 INFO     Plan is already known (according to hash)
+2025-05-04 05:27:50 INFO     Plan is already known (according to hash)
+2025-05-04 05:27:54 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_hashagg,enable_hashjoin,enable_indexscan]
+2025-05-04 05:27:58 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_hashagg,enable_hashjoin,enable_indexscan]
+2025-05-04 05:27:58 INFO     Plan is already known (according to hash)
+2025-05-04 05:28:01 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_hashagg,enable_hashjoin,enable_seqscan]
+2025-05-04 05:28:05 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_hashagg,enable_hashjoin,enable_seqscan]
+2025-05-04 05:28:08 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_hashagg,enable_hashjoin,enable_sort]
+2025-05-04 05:28:10 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_hashagg,enable_hashjoin,enable_sort]
+2025-05-04 05:28:10 INFO     Plan is already known (according to hash)
+2025-05-04 05:28:10 INFO     Plan is already known (according to hash)
+2025-05-04 05:28:10 INFO     Plan is already known (according to hash)
+2025-05-04 05:28:13 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_hashagg,enable_indexscan,enable_sort]
+2025-05-04 05:28:17 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_hashagg,enable_indexscan,enable_sort]
+2025-05-04 05:28:17 INFO     Plan is already known (according to hash)
+2025-05-04 05:28:17 INFO     Plan is already known (according to hash)
+2025-05-04 05:28:17 INFO     Plan is already known (according to hash)
+2025-05-04 05:28:17 INFO     Plan is already known (according to hash)
+2025-05-04 05:28:25 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_hashagg,enable_seqscan,enable_sort]
+2025-05-04 05:28:33 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_hashagg,enable_seqscan,enable_sort]
+2025-05-04 05:28:33 INFO     Plan is already known (according to hash)
+2025-05-04 05:28:33 INFO     Plan is already known (according to hash)
+2025-05-04 05:28:33 INFO     Plan is already known (according to hash)
+2025-05-04 05:28:33 INFO     Plan is already known (according to hash)
+2025-05-04 05:28:38 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_hashjoin,enable_indexscan,enable_sort]
+2025-05-04 05:28:41 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_hashjoin,enable_indexscan,enable_sort]
+2025-05-04 05:28:41 INFO     Plan is already known (according to hash)
+2025-05-04 05:28:41 INFO     Plan is already known (according to hash)
+2025-05-04 05:28:41 INFO     Plan is already known (according to hash)
+2025-05-04 05:28:41 INFO     Plan is already known (according to hash)
+2025-05-04 05:28:41 INFO     Plan is already known (according to hash)
+2025-05-04 05:28:41 INFO     Plan is already known (according to hash)
+2025-05-04 05:28:41 INFO     Plan is already known (according to hash)
+2025-05-04 05:28:42 INFO     Plan is already known (according to hash)
+2025-05-04 05:28:42 INFO     Plan is already known (according to hash)
+2025-05-04 05:28:42 INFO     Plan is already known (according to hash)
+2025-05-04 05:28:45 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_indexscan,enable_seqscan,enable_sort]
+2025-05-04 05:28:48 INFO     Serialize a new measurement for query benchmark/queries/tpch/18.sql and the disabled knobs [enable_indexscan,enable_seqscan,enable_sort]
+2025-05-04 05:28:48 INFO     Plan is already known (according to hash)
+2025-05-04 05:28:48 INFO     Plan is already known (according to hash)
+2025-05-04 05:28:48 INFO     Plan is already known (according to hash)
+2025-05-04 05:28:48 INFO     Plan is already known (according to hash)
+2025-05-04 05:28:48 INFO     Plan is already known (according to hash)
+2025-05-04 05:28:48 INFO     Plan is already known (according to hash)
+2025-05-04 05:28:48 INFO     Found 80 duplicated query plans!
+2025-05-04 05:28:48 INFO     run Q19.sql...
+2025-05-04 05:28:48 INFO     Approximate query span for query: benchmark/queries/tpch/19.sql
+2025-05-04 05:28:49 INFO     Default plan hash: #-3847091338895412690
+2025-05-04 05:28:49 INFO     Failed query hash: #-3884599205072274107
+2025-05-04 05:28:49 INFO     There are 3 alternative plans
+2025-05-04 05:28:50 INFO     Found new hint-set: 
+2025-05-04 05:28:50 INFO     Found new hint-set: enable_indexscan
+2025-05-04 05:28:50 INFO     Found new hint-set: enable_nestloop
+2025-05-04 05:28:50 INFO     Found new hint-set: enable_seqscan
+2025-05-04 05:28:50 INFO     Found new hint-set: enable_bitmapscan,enable_indexscan
+2025-05-04 05:28:50 INFO     Found new hint-set: enable_mergejoin,enable_nestloop
+2025-05-04 05:28:50 INFO     Found new hint-set: enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:28:50 INFO     Found new hint-set: enable_hashjoin,enable_mergejoin,enable_nestloop
+2025-05-04 05:28:50 INFO     Found new hint-set: enable_mergejoin,enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:28:50 INFO     Found new hint-set: enable_sort,enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:28:50 INFO     Found new hint-set: enable_material,enable_mergejoin,enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:28:50 INFO     Found new hint-set: enable_material,enable_sort,enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:28:50 INFO     Start exploring optimizer configs for query benchmark/queries/tpch/19.sql
+2025-05-04 05:28:50 INFO     Run 1 different configs
+2025-05-04 05:28:50 INFO     Serialize a new measurement for query benchmark/queries/tpch/19.sql and the disabled knobs [None]
+2025-05-04 05:28:50 INFO     Serialize a new measurement for query benchmark/queries/tpch/19.sql and the disabled knobs [None]
+2025-05-04 05:28:50 INFO     Enter next DP stage, execute for 3 hint sets/configurations
+2025-05-04 05:29:19 INFO     Serialize a new measurement for query benchmark/queries/tpch/19.sql and the disabled knobs [enable_nestloop]
+2025-05-04 05:29:52 INFO     Serialize a new measurement for query benchmark/queries/tpch/19.sql and the disabled knobs [enable_nestloop]
+2025-05-04 05:29:52 INFO     Plan is already known (according to hash)
+2025-05-04 05:29:52 INFO     Plan is already known (according to hash)
+2025-05-04 05:29:52 INFO     Enter next DP stage, execute for 1 hint sets/configurations
+2025-05-04 05:29:52 INFO     Plan is already known (according to hash)
+2025-05-04 05:29:52 INFO     Enter next DP stage, execute for 0 hint sets/configurations
+2025-05-04 05:29:52 INFO     Found 3 duplicated query plans!
+2025-05-04 05:29:52 INFO     run Q2.sql...
+2025-05-04 05:29:52 INFO     Approximate query span for query: benchmark/queries/tpch/2.sql
+2025-05-04 05:29:52 INFO     Default plan hash: #-3038264458971520416
+2025-05-04 05:29:52 INFO     Failed query hash: #-3884599205072274107
+2025-05-04 05:29:52 INFO     There are 5 alternative plans
+2025-05-04 05:29:57 INFO     Found new hint-set: 
+2025-05-04 05:29:57 INFO     Found new hint-set: enable_indexscan
+2025-05-04 05:29:57 INFO     Found new hint-set: enable_mergejoin
+2025-05-04 05:29:57 INFO     Found new hint-set: enable_nestloop
+2025-05-04 05:29:57 INFO     Found new hint-set: enable_seqscan
+2025-05-04 05:29:57 INFO     Found new hint-set: enable_sort
+2025-05-04 05:29:57 INFO     Found new hint-set: enable_bitmapscan,enable_indexscan
+2025-05-04 05:29:57 INFO     Found new hint-set: enable_hashjoin,enable_indexscan
+2025-05-04 05:29:57 INFO     Found new hint-set: enable_hashjoin,enable_mergejoin
+2025-05-04 05:29:57 INFO     Found new hint-set: enable_hashjoin,enable_nestloop
+2025-05-04 05:29:57 INFO     Found new hint-set: enable_hashjoin,enable_sort
+2025-05-04 05:29:57 INFO     Found new hint-set: enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:29:57 INFO     Found new hint-set: enable_material,enable_bitmapscan,enable_indexscan
+2025-05-04 05:29:57 INFO     Found new hint-set: enable_bitmapscan,enable_hashjoin,enable_indexscan
+2025-05-04 05:29:57 INFO     Found new hint-set: enable_material,enable_hashjoin,enable_indexscan
+2025-05-04 05:29:57 INFO     Found new hint-set: enable_material,enable_hashjoin,enable_mergejoin
+2025-05-04 05:29:57 INFO     Found new hint-set: enable_material,enable_hashjoin,enable_sort
+2025-05-04 05:29:57 INFO     Found new hint-set: enable_material,enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:29:57 INFO     Found new hint-set: enable_hashjoin,enable_material,enable_bitmapscan,enable_indexscan
+2025-05-04 05:29:57 INFO     Found new hint-set: enable_material,enable_bitmapscan,enable_hashjoin,enable_indexscan
+2025-05-04 05:29:57 INFO     Found new hint-set: enable_bitmapscan,enable_material,enable_hashjoin,enable_indexscan
+2025-05-04 05:29:57 INFO     Start exploring optimizer configs for query benchmark/queries/tpch/2.sql
+2025-05-04 05:29:57 INFO     Run 1 different configs
+2025-05-04 05:29:58 INFO     Serialize a new measurement for query benchmark/queries/tpch/2.sql and the disabled knobs [None]
+2025-05-04 05:29:58 INFO     Serialize a new measurement for query benchmark/queries/tpch/2.sql and the disabled knobs [None]
+2025-05-04 05:29:58 INFO     Enter next DP stage, execute for 7 hint sets/configurations
+2025-05-04 05:29:59 INFO     Plan is already known (according to hash)
+2025-05-04 05:29:59 INFO     Plan is already known (according to hash)
+2025-05-04 05:29:59 INFO     Serialize a new measurement for query benchmark/queries/tpch/2.sql and the disabled knobs [enable_mergejoin]
+2025-05-04 05:30:00 INFO     Serialize a new measurement for query benchmark/queries/tpch/2.sql and the disabled knobs [enable_mergejoin]
+2025-05-04 05:30:03 INFO     Serialize a new measurement for query benchmark/queries/tpch/2.sql and the disabled knobs [enable_nestloop]
+2025-05-04 05:30:06 INFO     Serialize a new measurement for query benchmark/queries/tpch/2.sql and the disabled knobs [enable_nestloop]
+2025-05-04 05:30:07 INFO     Serialize a new measurement for query benchmark/queries/tpch/2.sql and the disabled knobs [enable_seqscan]
+2025-05-04 05:30:08 INFO     Serialize a new measurement for query benchmark/queries/tpch/2.sql and the disabled knobs [enable_seqscan]
+2025-05-04 05:30:09 INFO     Serialize a new measurement for query benchmark/queries/tpch/2.sql and the disabled knobs [enable_sort]
+2025-05-04 05:30:11 INFO     Serialize a new measurement for query benchmark/queries/tpch/2.sql and the disabled knobs [enable_sort]
+2025-05-04 05:30:11 INFO     Plan is already known (according to hash)
+2025-05-04 05:30:11 INFO     Enter next DP stage, execute for 10 hint sets/configurations
+2025-05-04 05:30:11 INFO     Plan is already known (according to hash)
+2025-05-04 05:30:11 INFO     Plan is already known (according to hash)
+2025-05-04 05:30:11 INFO     Plan is already known (according to hash)
+2025-05-04 05:30:11 INFO     Plan is already known (according to hash)
+2025-05-04 05:30:11 INFO     Plan is already known (according to hash)
+2025-05-04 05:30:18 INFO     Serialize a new measurement for query benchmark/queries/tpch/2.sql and the disabled knobs [enable_indexscan,enable_seqscan]
+2025-05-04 05:30:23 INFO     Serialize a new measurement for query benchmark/queries/tpch/2.sql and the disabled knobs [enable_indexscan,enable_seqscan]
+2025-05-04 05:30:23 INFO     Plan is already known (according to hash)
+2025-05-04 05:30:24 INFO     Serialize a new measurement for query benchmark/queries/tpch/2.sql and the disabled knobs [enable_mergejoin,enable_seqscan]
+2025-05-04 05:30:25 INFO     Serialize a new measurement for query benchmark/queries/tpch/2.sql and the disabled knobs [enable_mergejoin,enable_seqscan]
+2025-05-04 05:30:25 INFO     Plan is already known (according to hash)
+2025-05-04 05:30:25 INFO     Plan is already known (according to hash)
+2025-05-04 05:30:25 INFO     Enter next DP stage, execute for 7 hint sets/configurations
+2025-05-04 05:30:25 INFO     Plan is already known (according to hash)
+2025-05-04 05:30:25 INFO     Plan is already known (according to hash)
+2025-05-04 05:30:25 INFO     Plan is already known (according to hash)
+2025-05-04 05:30:25 INFO     Plan is already known (according to hash)
+2025-05-04 05:30:25 INFO     Plan is already known (according to hash)
+2025-05-04 05:30:25 INFO     Plan is already known (according to hash)
+2025-05-04 05:30:25 INFO     Plan is already known (according to hash)
+2025-05-04 05:30:25 INFO     Found 18 duplicated query plans!
+2025-05-04 05:30:25 INFO     run Q20.sql...
+2025-05-04 05:30:25 INFO     Approximate query span for query: benchmark/queries/tpch/20.sql
+2025-05-04 05:30:25 INFO     Default plan hash: #3191121566137939246
+2025-05-04 05:30:25 INFO     Failed query hash: #-3884599205072274107
+2025-05-04 05:30:25 INFO     There are 5 alternative plans
+2025-05-04 05:30:26 INFO     Found new hint-set: 
+2025-05-04 05:30:26 INFO     Found new hint-set: enable_hashjoin
+2025-05-04 05:30:26 INFO     Found new hint-set: enable_indexscan
+2025-05-04 05:30:26 INFO     Found new hint-set: enable_nestloop
+2025-05-04 05:30:26 INFO     Found new hint-set: enable_seqscan
+2025-05-04 05:30:26 INFO     Found new hint-set: enable_sort
+2025-05-04 05:30:26 INFO     Found new hint-set: enable_mergejoin,enable_hashjoin
+2025-05-04 05:30:26 INFO     Found new hint-set: enable_bitmapscan,enable_indexscan
+2025-05-04 05:30:26 INFO     Found new hint-set: enable_mergejoin,enable_nestloop
+2025-05-04 05:30:26 INFO     Found new hint-set: enable_hashagg,enable_mergejoin,enable_hashjoin
+2025-05-04 05:30:26 INFO     Start exploring optimizer configs for query benchmark/queries/tpch/20.sql
+2025-05-04 05:30:26 INFO     Run 1 different configs
+2025-05-04 05:30:27 INFO     Serialize a new measurement for query benchmark/queries/tpch/20.sql and the disabled knobs [None]
+2025-05-04 05:30:27 INFO     Serialize a new measurement for query benchmark/queries/tpch/20.sql and the disabled knobs [None]
+2025-05-04 05:30:27 INFO     Enter next DP stage, execute for 5 hint sets/configurations
+2025-05-04 05:30:28 INFO     Serialize a new measurement for query benchmark/queries/tpch/20.sql and the disabled knobs [enable_hashjoin]
+2025-05-04 05:30:28 INFO     Serialize a new measurement for query benchmark/queries/tpch/20.sql and the disabled knobs [enable_hashjoin]
+2025-05-04 05:30:28 INFO     Serialize a new measurement for query benchmark/queries/tpch/20.sql and the disabled knobs [enable_indexscan]
+2025-05-04 05:30:29 INFO     Serialize a new measurement for query benchmark/queries/tpch/20.sql and the disabled knobs [enable_indexscan]
+2025-05-04 05:31:00 INFO     Serialize a new measurement for query benchmark/queries/tpch/20.sql and the disabled knobs [enable_nestloop]
+2025-05-04 05:31:27 INFO     Serialize a new measurement for query benchmark/queries/tpch/20.sql and the disabled knobs [enable_nestloop]
+2025-05-04 05:31:28 INFO     Serialize a new measurement for query benchmark/queries/tpch/20.sql and the disabled knobs [enable_seqscan]
+2025-05-04 05:31:28 INFO     Serialize a new measurement for query benchmark/queries/tpch/20.sql and the disabled knobs [enable_seqscan]
+2025-05-04 05:31:29 INFO     Serialize a new measurement for query benchmark/queries/tpch/20.sql and the disabled knobs [enable_sort]
+2025-05-04 05:31:29 INFO     Serialize a new measurement for query benchmark/queries/tpch/20.sql and the disabled knobs [enable_sort]
+2025-05-04 05:31:29 INFO     Enter next DP stage, execute for 1 hint sets/configurations
+2025-05-04 05:31:30 INFO     Serialize a new measurement for query benchmark/queries/tpch/20.sql and the disabled knobs [enable_hashjoin,enable_seqscan]
+2025-05-04 05:31:30 INFO     Serialize a new measurement for query benchmark/queries/tpch/20.sql and the disabled knobs [enable_hashjoin,enable_seqscan]
+2025-05-04 05:31:30 INFO     Enter next DP stage, execute for 0 hint sets/configurations
+2025-05-04 05:31:30 INFO     Found 0 duplicated query plans!
+2025-05-04 05:31:30 INFO     run Q21.sql...
+2025-05-04 05:31:30 INFO     Approximate query span for query: benchmark/queries/tpch/21.sql
+2025-05-04 05:31:30 INFO     Default plan hash: #-8288705116385271167
+2025-05-04 05:31:30 INFO     Failed query hash: #-3884599205072274107
+2025-05-04 05:31:30 INFO     There are 5 alternative plans
+2025-05-04 05:31:32 INFO     Found new hint-set: 
+2025-05-04 05:31:32 INFO     Found new hint-set: enable_hashjoin
+2025-05-04 05:31:32 INFO     Found new hint-set: enable_indexscan
+2025-05-04 05:31:32 INFO     Found new hint-set: enable_nestloop
+2025-05-04 05:31:32 INFO     Found new hint-set: enable_seqscan
+2025-05-04 05:31:32 INFO     Found new hint-set: enable_sort
+2025-05-04 05:31:32 INFO     Found new hint-set: enable_material,enable_hashjoin
+2025-05-04 05:31:32 INFO     Found new hint-set: enable_mergejoin,enable_hashjoin
+2025-05-04 05:31:32 INFO     Found new hint-set: enable_bitmapscan,enable_indexscan
+2025-05-04 05:31:32 INFO     Found new hint-set: enable_mergejoin,enable_nestloop
+2025-05-04 05:31:32 INFO     Found new hint-set: enable_hashagg,enable_sort
+2025-05-04 05:31:32 INFO     Found new hint-set: enable_mergejoin,enable_material,enable_hashjoin
+2025-05-04 05:31:32 INFO     Found new hint-set: enable_material,enable_mergejoin,enable_hashjoin
+2025-05-04 05:31:32 INFO     Start exploring optimizer configs for query benchmark/queries/tpch/21.sql
+2025-05-04 05:31:32 INFO     Run 1 different configs
+2025-05-04 05:31:34 INFO     Serialize a new measurement for query benchmark/queries/tpch/21.sql and the disabled knobs [None]
+2025-05-04 05:31:37 INFO     Serialize a new measurement for query benchmark/queries/tpch/21.sql and the disabled knobs [None]
+2025-05-04 05:31:37 INFO     Enter next DP stage, execute for 6 hint sets/configurations
+2025-05-04 05:31:40 INFO     Serialize a new measurement for query benchmark/queries/tpch/21.sql and the disabled knobs [enable_hashjoin]
+2025-05-04 05:31:44 INFO     Serialize a new measurement for query benchmark/queries/tpch/21.sql and the disabled knobs [enable_hashjoin]
+2025-05-04 05:31:46 INFO     Serialize a new measurement for query benchmark/queries/tpch/21.sql and the disabled knobs [enable_indexscan]
+2025-05-04 05:31:48 INFO     Serialize a new measurement for query benchmark/queries/tpch/21.sql and the disabled knobs [enable_indexscan]
+2025-05-04 05:31:52 INFO     Serialize a new measurement for query benchmark/queries/tpch/21.sql and the disabled knobs [enable_nestloop]
+2025-05-04 05:31:55 INFO     Serialize a new measurement for query benchmark/queries/tpch/21.sql and the disabled knobs [enable_nestloop]
+2025-05-04 05:31:55 INFO     Plan is already known (according to hash)
+2025-05-04 05:31:57 INFO     Serialize a new measurement for query benchmark/queries/tpch/21.sql and the disabled knobs [enable_sort]
+2025-05-04 05:31:59 INFO     Serialize a new measurement for query benchmark/queries/tpch/21.sql and the disabled knobs [enable_sort]
+2025-05-04 05:31:59 INFO     Plan is already known (according to hash)
+2025-05-04 05:31:59 INFO     Enter next DP stage, execute for 8 hint sets/configurations
+2025-05-04 05:33:59 CRITICAL Optimizer enable_bitmapscan,enable_indexscan cannot be disabled for benchmark/queries/tpch/21.sql - skip this config. The error: canceling statement due to statement timeout
+
+2025-05-04 05:34:02 INFO     Serialize a new measurement for query benchmark/queries/tpch/21.sql and the disabled knobs [enable_hashagg,enable_sort]
+2025-05-04 05:34:05 INFO     Serialize a new measurement for query benchmark/queries/tpch/21.sql and the disabled knobs [enable_hashagg,enable_sort]
+2025-05-04 05:34:17 INFO     Serialize a new measurement for query benchmark/queries/tpch/21.sql and the disabled knobs [enable_indexscan,enable_seqscan]
+2025-05-04 05:34:30 INFO     Serialize a new measurement for query benchmark/queries/tpch/21.sql and the disabled knobs [enable_indexscan,enable_seqscan]
+2025-05-04 05:34:33 INFO     Serialize a new measurement for query benchmark/queries/tpch/21.sql and the disabled knobs [enable_indexscan,enable_sort]
+2025-05-04 05:34:35 INFO     Serialize a new measurement for query benchmark/queries/tpch/21.sql and the disabled knobs [enable_indexscan,enable_sort]
+2025-05-04 05:34:35 INFO     Plan is already known (according to hash)
+2025-05-04 05:34:38 INFO     Serialize a new measurement for query benchmark/queries/tpch/21.sql and the disabled knobs [enable_seqscan,enable_sort]
+2025-05-04 05:34:39 INFO     Serialize a new measurement for query benchmark/queries/tpch/21.sql and the disabled knobs [enable_seqscan,enable_sort]
+2025-05-04 05:34:39 INFO     Plan is already known (according to hash)
+2025-05-04 05:34:39 INFO     Plan is already known (according to hash)
+2025-05-04 05:34:40 INFO     Enter next DP stage, execute for 1 hint sets/configurations
+2025-05-04 05:34:40 INFO     Plan is already known (according to hash)
+2025-05-04 05:34:40 INFO     Found 6 duplicated query plans!
+2025-05-04 05:34:40 INFO     run Q22.sql...
+2025-05-04 05:34:40 INFO     Approximate query span for query: benchmark/queries/tpch/22.sql
+2025-05-04 05:34:40 INFO     Default plan hash: #5999142530198399433
+2025-05-04 05:34:40 INFO     Failed query hash: #-3884599205072274107
+2025-05-04 05:34:40 INFO     There are 5 alternative plans
+2025-05-04 05:34:41 INFO     Found new hint-set: 
+2025-05-04 05:34:41 INFO     Found new hint-set: enable_indexonlyscan
+2025-05-04 05:34:41 INFO     Found new hint-set: enable_indexscan
+2025-05-04 05:34:41 INFO     Found new hint-set: enable_nestloop
+2025-05-04 05:34:41 INFO     Found new hint-set: enable_seqscan
+2025-05-04 05:34:41 INFO     Found new hint-set: enable_sort
+2025-05-04 05:34:41 INFO     Found new hint-set: enable_bitmapscan,enable_indexscan
+2025-05-04 05:34:41 INFO     Found new hint-set: enable_mergejoin,enable_nestloop
+2025-05-04 05:34:41 INFO     Found new hint-set: enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:34:41 INFO     Found new hint-set: enable_hashjoin,enable_mergejoin,enable_nestloop
+2025-05-04 05:34:41 INFO     Found new hint-set: enable_mergejoin,enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:34:41 INFO     Found new hint-set: enable_material,enable_mergejoin,enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:34:41 INFO     Start exploring optimizer configs for query benchmark/queries/tpch/22.sql
+2025-05-04 05:34:41 INFO     Run 1 different configs
+2025-05-04 05:34:41 INFO     Serialize a new measurement for query benchmark/queries/tpch/22.sql and the disabled knobs [None]
+2025-05-04 05:34:41 INFO     Serialize a new measurement for query benchmark/queries/tpch/22.sql and the disabled knobs [None]
+2025-05-04 05:34:41 INFO     Enter next DP stage, execute for 7 hint sets/configurations
+2025-05-04 05:34:41 INFO     Plan is already known (according to hash)
+2025-05-04 05:34:41 INFO     Plan is already known (according to hash)
+2025-05-04 05:34:41 INFO     Plan is already known (according to hash)
+2025-05-04 05:34:45 INFO     Serialize a new measurement for query benchmark/queries/tpch/22.sql and the disabled knobs [enable_nestloop]
+2025-05-04 05:34:50 INFO     Serialize a new measurement for query benchmark/queries/tpch/22.sql and the disabled knobs [enable_nestloop]
+2025-05-04 05:34:51 INFO     Serialize a new measurement for query benchmark/queries/tpch/22.sql and the disabled knobs [enable_seqscan]
+2025-05-04 05:34:51 INFO     Serialize a new measurement for query benchmark/queries/tpch/22.sql and the disabled knobs [enable_seqscan]
+2025-05-04 05:34:51 INFO     Serialize a new measurement for query benchmark/queries/tpch/22.sql and the disabled knobs [enable_sort]
+2025-05-04 05:34:52 INFO     Serialize a new measurement for query benchmark/queries/tpch/22.sql and the disabled knobs [enable_sort]
+2025-05-04 05:34:52 INFO     Plan is already known (according to hash)
+2025-05-04 05:34:52 INFO     Enter next DP stage, execute for 7 hint sets/configurations
+2025-05-04 05:34:53 INFO     Serialize a new measurement for query benchmark/queries/tpch/22.sql and the disabled knobs [enable_bitmapscan,enable_indexscan]
+2025-05-04 05:34:54 INFO     Serialize a new measurement for query benchmark/queries/tpch/22.sql and the disabled knobs [enable_bitmapscan,enable_indexscan]
+2025-05-04 05:34:54 INFO     Plan is already known (according to hash)
+2025-05-04 05:34:54 INFO     Plan is already known (according to hash)
+2025-05-04 05:34:54 INFO     Plan is already known (according to hash)
+2025-05-04 05:34:54 INFO     Plan is already known (according to hash)
+2025-05-04 05:34:54 INFO     Plan is already known (according to hash)
+2025-05-04 05:34:54 INFO     Plan is already known (according to hash)
+2025-05-04 05:34:54 INFO     Enter next DP stage, execute for 4 hint sets/configurations
+2025-05-04 05:34:54 INFO     Plan is already known (according to hash)
+2025-05-04 05:34:54 INFO     Plan is already known (according to hash)
+2025-05-04 05:34:54 INFO     Plan is already known (according to hash)
+2025-05-04 05:34:54 INFO     Plan is already known (according to hash)
+2025-05-04 05:34:54 INFO     Found 14 duplicated query plans!
+2025-05-04 05:34:54 INFO     run Q3.sql...
+2025-05-04 05:34:54 INFO     Approximate query span for query: benchmark/queries/tpch/3.sql
+2025-05-04 05:34:54 INFO     Default plan hash: #4933510601613305395
+2025-05-04 05:34:54 INFO     Failed query hash: #-3884599205072274107
+2025-05-04 05:34:54 INFO     There are 6 alternative plans
+2025-05-04 05:34:55 INFO     Found new hint-set: 
+2025-05-04 05:34:55 INFO     Found new hint-set: enable_hashagg
+2025-05-04 05:34:55 INFO     Found new hint-set: enable_hashjoin
+2025-05-04 05:34:55 INFO     Found new hint-set: enable_indexscan
+2025-05-04 05:34:55 INFO     Found new hint-set: enable_nestloop
+2025-05-04 05:34:55 INFO     Found new hint-set: enable_seqscan
+2025-05-04 05:34:55 INFO     Found new hint-set: enable_sort
+2025-05-04 05:34:55 INFO     Found new hint-set: enable_mergejoin,enable_hashjoin
+2025-05-04 05:34:55 INFO     Found new hint-set: enable_bitmapscan,enable_indexscan
+2025-05-04 05:34:55 INFO     Start exploring optimizer configs for query benchmark/queries/tpch/3.sql
+2025-05-04 05:34:55 INFO     Run 1 different configs
+2025-05-04 05:34:59 INFO     Serialize a new measurement for query benchmark/queries/tpch/3.sql and the disabled knobs [None]
+2025-05-04 05:35:04 INFO     Serialize a new measurement for query benchmark/queries/tpch/3.sql and the disabled knobs [None]
+2025-05-04 05:35:04 INFO     Enter next DP stage, execute for 9 hint sets/configurations
+2025-05-04 05:35:04 INFO     Plan is already known (according to hash)
+2025-05-04 05:35:09 INFO     Serialize a new measurement for query benchmark/queries/tpch/3.sql and the disabled knobs [enable_hashagg]
+2025-05-04 05:35:14 INFO     Serialize a new measurement for query benchmark/queries/tpch/3.sql and the disabled knobs [enable_hashagg]
+2025-05-04 05:35:20 INFO     Serialize a new measurement for query benchmark/queries/tpch/3.sql and the disabled knobs [enable_hashjoin]
+2025-05-04 05:35:26 INFO     Serialize a new measurement for query benchmark/queries/tpch/3.sql and the disabled knobs [enable_hashjoin]
+2025-05-04 05:35:29 INFO     Serialize a new measurement for query benchmark/queries/tpch/3.sql and the disabled knobs [enable_indexscan]
+2025-05-04 05:35:32 INFO     Serialize a new measurement for query benchmark/queries/tpch/3.sql and the disabled knobs [enable_indexscan]
+2025-05-04 05:35:50 INFO     Serialize a new measurement for query benchmark/queries/tpch/3.sql and the disabled knobs [enable_nestloop]
+2025-05-04 05:36:10 INFO     Serialize a new measurement for query benchmark/queries/tpch/3.sql and the disabled knobs [enable_nestloop]
+2025-05-04 05:36:10 INFO     Plan is already known (according to hash)
+2025-05-04 05:36:10 INFO     Plan is already known (according to hash)
+2025-05-04 05:36:16 INFO     Serialize a new measurement for query benchmark/queries/tpch/3.sql and the disabled knobs [enable_sort]
+2025-05-04 05:36:21 INFO     Serialize a new measurement for query benchmark/queries/tpch/3.sql and the disabled knobs [enable_sort]
+2025-05-04 05:36:21 INFO     Plan is already known (according to hash)
+2025-05-04 05:36:21 INFO     Enter next DP stage, execute for 10 hint sets/configurations
+2025-05-04 05:36:21 INFO     Plan is already known (according to hash)
+2025-05-04 05:36:21 INFO     Plan is already known (according to hash)
+2025-05-04 05:36:21 INFO     Plan is already known (according to hash)
+2025-05-04 05:36:21 INFO     Plan is already known (according to hash)
+2025-05-04 05:36:21 INFO     Plan is already known (according to hash)
+2025-05-04 05:36:25 INFO     Serialize a new measurement for query benchmark/queries/tpch/3.sql and the disabled knobs [enable_indexscan,enable_seqscan]
+2025-05-04 05:36:30 INFO     Serialize a new measurement for query benchmark/queries/tpch/3.sql and the disabled knobs [enable_indexscan,enable_seqscan]
+2025-05-04 05:36:30 INFO     Plan is already known (according to hash)
+2025-05-04 05:36:30 INFO     Plan is already known (according to hash)
+2025-05-04 05:36:30 INFO     Plan is already known (according to hash)
+2025-05-04 05:36:30 INFO     Plan is already known (according to hash)
+2025-05-04 05:36:30 INFO     Enter next DP stage, execute for 7 hint sets/configurations
+2025-05-04 05:36:30 INFO     Plan is already known (according to hash)
+2025-05-04 05:36:30 INFO     Plan is already known (according to hash)
+2025-05-04 05:36:30 INFO     Plan is already known (according to hash)
+2025-05-04 05:36:30 INFO     Plan is already known (according to hash)
+2025-05-04 05:36:30 INFO     Plan is already known (according to hash)
+2025-05-04 05:36:30 INFO     Plan is already known (according to hash)
+2025-05-04 05:36:30 INFO     Plan is already known (according to hash)
+2025-05-04 05:36:30 INFO     Found 20 duplicated query plans!
+2025-05-04 05:36:30 INFO     run Q4.sql...
+2025-05-04 05:36:30 INFO     Approximate query span for query: benchmark/queries/tpch/4.sql
+2025-05-04 05:36:30 INFO     Default plan hash: #2095419297463782808
+2025-05-04 05:36:30 INFO     Failed query hash: #-3884599205072274107
+2025-05-04 05:36:30 INFO     There are 4 alternative plans
+2025-05-04 05:36:34 INFO     Found new hint-set: 
+2025-05-04 05:36:34 INFO     Found new hint-set: enable_hashagg
+2025-05-04 05:36:34 INFO     Found new hint-set: enable_indexscan
+2025-05-04 05:36:34 INFO     Found new hint-set: enable_nestloop
+2025-05-04 05:36:34 INFO     Found new hint-set: enable_sort
+2025-05-04 05:36:34 INFO     Found new hint-set: enable_bitmapscan,enable_indexscan
+2025-05-04 05:36:34 INFO     Found new hint-set: enable_hashjoin,enable_nestloop
+2025-05-04 05:36:34 INFO     Found new hint-set: enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:36:34 INFO     Found new hint-set: enable_seqscan,enable_bitmapscan,enable_indexscan
+2025-05-04 05:36:34 INFO     Found new hint-set: enable_mergejoin,enable_hashjoin,enable_nestloop
+2025-05-04 05:36:34 INFO     Found new hint-set: enable_mergejoin,enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:36:34 INFO     Found new hint-set: enable_seqscan,enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:36:34 INFO     Found new hint-set: enable_mergejoin,enable_seqscan,enable_bitmapscan,enable_indexscan
+2025-05-04 05:36:34 INFO     Found new hint-set: enable_material,enable_mergejoin,enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:36:34 INFO     Found new hint-set: enable_seqscan,enable_mergejoin,enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:36:34 INFO     Found new hint-set: enable_mergejoin,enable_seqscan,enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:36:34 INFO     Found new hint-set: enable_hashjoin,enable_mergejoin,enable_seqscan,enable_bitmapscan,enable_indexscan
+2025-05-04 05:36:34 INFO     Found new hint-set: enable_seqscan,enable_material,enable_mergejoin,enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:36:34 INFO     Found new hint-set: enable_material,enable_seqscan,enable_mergejoin,enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:36:34 INFO     Found new hint-set: enable_material,enable_mergejoin,enable_seqscan,enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:36:34 INFO     Found new hint-set: enable_material,enable_hashjoin,enable_mergejoin,enable_seqscan,enable_bitmapscan,enable_indexscan
+2025-05-04 05:36:34 INFO     Start exploring optimizer configs for query benchmark/queries/tpch/4.sql
+2025-05-04 05:36:34 INFO     Run 1 different configs
+2025-05-04 05:36:35 INFO     Serialize a new measurement for query benchmark/queries/tpch/4.sql and the disabled knobs [None]
+2025-05-04 05:36:36 INFO     Serialize a new measurement for query benchmark/queries/tpch/4.sql and the disabled knobs [None]
+2025-05-04 05:36:36 INFO     Enter next DP stage, execute for 5 hint sets/configurations
+2025-05-04 05:36:36 INFO     Plan is already known (according to hash)
+2025-05-04 05:36:36 INFO     Plan is already known (according to hash)
+2025-05-04 05:36:39 INFO     Serialize a new measurement for query benchmark/queries/tpch/4.sql and the disabled knobs [enable_nestloop]
+2025-05-04 05:36:42 INFO     Serialize a new measurement for query benchmark/queries/tpch/4.sql and the disabled knobs [enable_nestloop]
+2025-05-04 05:36:44 INFO     Serialize a new measurement for query benchmark/queries/tpch/4.sql and the disabled knobs [enable_sort]
+2025-05-04 05:36:45 INFO     Serialize a new measurement for query benchmark/queries/tpch/4.sql and the disabled knobs [enable_sort]
+2025-05-04 05:36:45 INFO     Plan is already known (according to hash)
+2025-05-04 05:36:45 INFO     Enter next DP stage, execute for 4 hint sets/configurations
+2025-05-04 05:36:47 INFO     Serialize a new measurement for query benchmark/queries/tpch/4.sql and the disabled knobs [enable_bitmapscan,enable_indexscan]
+2025-05-04 05:36:49 INFO     Serialize a new measurement for query benchmark/queries/tpch/4.sql and the disabled knobs [enable_bitmapscan,enable_indexscan]
+2025-05-04 05:36:49 INFO     Plan is already known (according to hash)
+2025-05-04 05:36:49 INFO     Plan is already known (according to hash)
+2025-05-04 05:36:49 INFO     Plan is already known (according to hash)
+2025-05-04 05:36:49 INFO     Enter next DP stage, execute for 1 hint sets/configurations
+2025-05-04 05:36:49 INFO     Plan is already known (according to hash)
+2025-05-04 05:36:49 INFO     Found 7 duplicated query plans!
+2025-05-04 05:36:49 INFO     run Q5.sql...
+2025-05-04 05:36:49 INFO     Approximate query span for query: benchmark/queries/tpch/5.sql
+2025-05-04 05:36:49 INFO     Default plan hash: #-6787854852610015596
+2025-05-04 05:36:49 INFO     Failed query hash: #-3884599205072274107
+2025-05-04 05:36:49 INFO     There are 5 alternative plans
+2025-05-04 05:36:50 INFO     Found new hint-set: 
+2025-05-04 05:36:50 INFO     Found new hint-set: enable_hashjoin
+2025-05-04 05:36:50 INFO     Found new hint-set: enable_indexscan
+2025-05-04 05:36:50 INFO     Found new hint-set: enable_nestloop
+2025-05-04 05:36:50 INFO     Found new hint-set: enable_seqscan
+2025-05-04 05:36:50 INFO     Found new hint-set: enable_sort
+2025-05-04 05:36:50 INFO     Found new hint-set: enable_mergejoin,enable_hashjoin
+2025-05-04 05:36:50 INFO     Found new hint-set: enable_bitmapscan,enable_indexscan
+2025-05-04 05:36:50 INFO     Found new hint-set: enable_mergejoin,enable_nestloop
+2025-05-04 05:36:50 INFO     Found new hint-set: enable_material,enable_seqscan
+2025-05-04 05:36:50 INFO     Found new hint-set: enable_hashagg,enable_sort
+2025-05-04 05:36:50 INFO     Start exploring optimizer configs for query benchmark/queries/tpch/5.sql
+2025-05-04 05:36:50 INFO     Run 1 different configs
+2025-05-04 05:36:53 INFO     Serialize a new measurement for query benchmark/queries/tpch/5.sql and the disabled knobs [None]
+2025-05-04 05:36:55 INFO     Serialize a new measurement for query benchmark/queries/tpch/5.sql and the disabled knobs [None]
+2025-05-04 05:36:55 INFO     Enter next DP stage, execute for 5 hint sets/configurations
+2025-05-04 05:36:57 INFO     Serialize a new measurement for query benchmark/queries/tpch/5.sql and the disabled knobs [enable_hashjoin]
+2025-05-04 05:36:59 INFO     Serialize a new measurement for query benchmark/queries/tpch/5.sql and the disabled knobs [enable_hashjoin]
+2025-05-04 05:37:02 INFO     Serialize a new measurement for query benchmark/queries/tpch/5.sql and the disabled knobs [enable_indexscan]
+2025-05-04 05:37:04 INFO     Serialize a new measurement for query benchmark/queries/tpch/5.sql and the disabled knobs [enable_indexscan]
+2025-05-04 05:37:07 INFO     Serialize a new measurement for query benchmark/queries/tpch/5.sql and the disabled knobs [enable_nestloop]
+2025-05-04 05:37:10 INFO     Serialize a new measurement for query benchmark/queries/tpch/5.sql and the disabled knobs [enable_nestloop]
+2025-05-04 05:37:12 INFO     Serialize a new measurement for query benchmark/queries/tpch/5.sql and the disabled knobs [enable_seqscan]
+2025-05-04 05:37:14 INFO     Serialize a new measurement for query benchmark/queries/tpch/5.sql and the disabled knobs [enable_seqscan]
+2025-05-04 05:37:16 INFO     Serialize a new measurement for query benchmark/queries/tpch/5.sql and the disabled knobs [enable_sort]
+2025-05-04 05:37:19 INFO     Serialize a new measurement for query benchmark/queries/tpch/5.sql and the disabled knobs [enable_sort]
+2025-05-04 05:37:19 INFO     Enter next DP stage, execute for 1 hint sets/configurations
+2025-05-04 05:37:21 INFO     Serialize a new measurement for query benchmark/queries/tpch/5.sql and the disabled knobs [enable_material,enable_seqscan]
+2025-05-04 05:37:23 INFO     Serialize a new measurement for query benchmark/queries/tpch/5.sql and the disabled knobs [enable_material,enable_seqscan]
+2025-05-04 05:37:24 INFO     Enter next DP stage, execute for 0 hint sets/configurations
+2025-05-04 05:37:24 INFO     Found 0 duplicated query plans!
+2025-05-04 05:37:24 INFO     run Q6.sql...
+2025-05-04 05:37:24 INFO     Approximate query span for query: benchmark/queries/tpch/6.sql
+2025-05-04 05:37:24 INFO     Default plan hash: #-7886106557460301094
+2025-05-04 05:37:24 INFO     Failed query hash: #-3884599205072274107
+2025-05-04 05:37:24 INFO     There are 1 alternative plans
+2025-05-04 05:37:24 INFO     Found new hint-set: 
+2025-05-04 05:37:24 INFO     Found new hint-set: enable_indexscan
+2025-05-04 05:37:24 INFO     Found new hint-set: enable_bitmapscan,enable_indexscan
+2025-05-04 05:37:24 INFO     Found new hint-set: enable_seqscan,enable_bitmapscan,enable_indexscan
+2025-05-04 05:37:24 INFO     Start exploring optimizer configs for query benchmark/queries/tpch/6.sql
+2025-05-04 05:37:24 INFO     Run 1 different configs
+2025-05-04 05:37:26 INFO     Serialize a new measurement for query benchmark/queries/tpch/6.sql and the disabled knobs [None]
+2025-05-04 05:37:26 INFO     Serialize a new measurement for query benchmark/queries/tpch/6.sql and the disabled knobs [None]
+2025-05-04 05:37:26 INFO     Enter next DP stage, execute for 1 hint sets/configurations
+2025-05-04 05:37:26 INFO     Plan is already known (according to hash)
+2025-05-04 05:37:26 INFO     Enter next DP stage, execute for 0 hint sets/configurations
+2025-05-04 05:37:26 INFO     Found 1 duplicated query plans!
+2025-05-04 05:37:26 INFO     run Q7.sql...
+2025-05-04 05:37:26 INFO     Approximate query span for query: benchmark/queries/tpch/7.sql
+2025-05-04 05:37:27 INFO     Default plan hash: #-5505415561331562600
+2025-05-04 05:37:27 INFO     Failed query hash: #-3884599205072274107
+2025-05-04 05:37:27 INFO     There are 5 alternative plans
+2025-05-04 05:37:28 INFO     Found new hint-set: 
+2025-05-04 05:37:28 INFO     Found new hint-set: enable_hashjoin
+2025-05-04 05:37:28 INFO     Found new hint-set: enable_indexscan
+2025-05-04 05:37:28 INFO     Found new hint-set: enable_nestloop
+2025-05-04 05:37:28 INFO     Found new hint-set: enable_seqscan
+2025-05-04 05:37:28 INFO     Found new hint-set: enable_sort
+2025-05-04 05:37:28 INFO     Found new hint-set: enable_mergejoin,enable_hashjoin
+2025-05-04 05:37:28 INFO     Found new hint-set: enable_bitmapscan,enable_indexscan
+2025-05-04 05:37:28 INFO     Found new hint-set: enable_mergejoin,enable_nestloop
+2025-05-04 05:37:28 INFO     Found new hint-set: enable_material,enable_mergejoin,enable_hashjoin
+2025-05-04 05:37:28 INFO     Start exploring optimizer configs for query benchmark/queries/tpch/7.sql
+2025-05-04 05:37:28 INFO     Run 1 different configs
+2025-05-04 05:37:31 INFO     Serialize a new measurement for query benchmark/queries/tpch/7.sql and the disabled knobs [None]
+2025-05-04 05:37:33 INFO     Serialize a new measurement for query benchmark/queries/tpch/7.sql and the disabled knobs [None]
+2025-05-04 05:37:33 INFO     Enter next DP stage, execute for 7 hint sets/configurations
+2025-05-04 05:37:33 INFO     Plan is already known (according to hash)
+2025-05-04 05:37:36 INFO     Serialize a new measurement for query benchmark/queries/tpch/7.sql and the disabled knobs [enable_hashjoin]
+2025-05-04 05:37:39 INFO     Serialize a new measurement for query benchmark/queries/tpch/7.sql and the disabled knobs [enable_hashjoin]
+2025-05-04 05:37:41 INFO     Serialize a new measurement for query benchmark/queries/tpch/7.sql and the disabled knobs [enable_indexscan]
+2025-05-04 05:37:44 INFO     Serialize a new measurement for query benchmark/queries/tpch/7.sql and the disabled knobs [enable_indexscan]
+2025-05-04 05:38:00 INFO     Serialize a new measurement for query benchmark/queries/tpch/7.sql and the disabled knobs [enable_nestloop]
+2025-05-04 05:38:16 INFO     Serialize a new measurement for query benchmark/queries/tpch/7.sql and the disabled knobs [enable_nestloop]
+2025-05-04 05:38:16 INFO     Plan is already known (according to hash)
+2025-05-04 05:38:18 INFO     Serialize a new measurement for query benchmark/queries/tpch/7.sql and the disabled knobs [enable_sort]
+2025-05-04 05:38:21 INFO     Serialize a new measurement for query benchmark/queries/tpch/7.sql and the disabled knobs [enable_sort]
+2025-05-04 05:38:21 INFO     Plan is already known (according to hash)
+2025-05-04 05:38:21 INFO     Enter next DP stage, execute for 3 hint sets/configurations
+2025-05-04 05:38:21 INFO     Plan is already known (according to hash)
+2025-05-04 05:38:21 INFO     Plan is already known (according to hash)
+2025-05-04 05:38:21 INFO     Plan is already known (according to hash)
+2025-05-04 05:38:21 INFO     Enter next DP stage, execute for 1 hint sets/configurations
+2025-05-04 05:38:21 INFO     Plan is already known (according to hash)
+2025-05-04 05:38:21 INFO     Found 7 duplicated query plans!
+2025-05-04 05:38:21 INFO     run Q8.sql...
+2025-05-04 05:38:21 INFO     Approximate query span for query: benchmark/queries/tpch/8.sql
+2025-05-04 05:38:21 INFO     Default plan hash: #-8266584204580154507
+2025-05-04 05:38:21 INFO     Failed query hash: #-3884599205072274107
+2025-05-04 05:38:21 INFO     There are 5 alternative plans
+2025-05-04 05:38:25 INFO     Found new hint-set: 
+2025-05-04 05:38:25 INFO     Found new hint-set: enable_indexscan
+2025-05-04 05:38:25 INFO     Found new hint-set: enable_material
+2025-05-04 05:38:25 INFO     Found new hint-set: enable_nestloop
+2025-05-04 05:38:25 INFO     Found new hint-set: enable_seqscan
+2025-05-04 05:38:25 INFO     Found new hint-set: enable_sort
+2025-05-04 05:38:25 INFO     Found new hint-set: enable_bitmapscan,enable_indexscan
+2025-05-04 05:38:25 INFO     Found new hint-set: enable_hashjoin,enable_indexscan
+2025-05-04 05:38:25 INFO     Found new hint-set: enable_hashjoin,enable_nestloop
+2025-05-04 05:38:25 INFO     Found new hint-set: enable_mergejoin,enable_nestloop
+2025-05-04 05:38:25 INFO     Found new hint-set: enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:38:25 INFO     Found new hint-set: enable_bitmapscan,enable_hashjoin,enable_indexscan
+2025-05-04 05:38:25 INFO     Found new hint-set: enable_mergejoin,enable_hashjoin,enable_indexscan
+2025-05-04 05:38:25 INFO     Found new hint-set: enable_mergejoin,enable_hashjoin,enable_nestloop
+2025-05-04 05:38:25 INFO     Found new hint-set: enable_hashjoin,enable_mergejoin,enable_nestloop
+2025-05-04 05:38:25 INFO     Found new hint-set: enable_mergejoin,enable_hashjoin,enable_bitmapscan,enable_indexscan
+2025-05-04 05:38:25 INFO     Found new hint-set: enable_mergejoin,enable_bitmapscan,enable_hashjoin,enable_indexscan
+2025-05-04 05:38:25 INFO     Found new hint-set: enable_bitmapscan,enable_mergejoin,enable_hashjoin,enable_indexscan
+2025-05-04 05:38:25 INFO     Start exploring optimizer configs for query benchmark/queries/tpch/8.sql
+2025-05-04 05:38:25 INFO     Run 1 different configs
+2025-05-04 05:38:30 INFO     Serialize a new measurement for query benchmark/queries/tpch/8.sql and the disabled knobs [None]
+2025-05-04 05:38:35 INFO     Serialize a new measurement for query benchmark/queries/tpch/8.sql and the disabled knobs [None]
+2025-05-04 05:38:35 INFO     Enter next DP stage, execute for 6 hint sets/configurations
+2025-05-04 05:38:35 INFO     Plan is already known (according to hash)
+2025-05-04 05:38:38 INFO     Serialize a new measurement for query benchmark/queries/tpch/8.sql and the disabled knobs [enable_indexscan]
+2025-05-04 05:38:42 INFO     Serialize a new measurement for query benchmark/queries/tpch/8.sql and the disabled knobs [enable_indexscan]
+2025-05-04 05:39:19 INFO     Serialize a new measurement for query benchmark/queries/tpch/8.sql and the disabled knobs [enable_nestloop]
+2025-05-04 05:39:57 INFO     Serialize a new measurement for query benchmark/queries/tpch/8.sql and the disabled knobs [enable_nestloop]
+2025-05-04 05:39:57 INFO     Plan is already known (according to hash)
+2025-05-04 05:40:02 INFO     Serialize a new measurement for query benchmark/queries/tpch/8.sql and the disabled knobs [enable_sort]
+2025-05-04 05:40:08 INFO     Serialize a new measurement for query benchmark/queries/tpch/8.sql and the disabled knobs [enable_sort]
+2025-05-04 05:40:09 INFO     Plan is already known (according to hash)
+2025-05-04 05:40:09 INFO     Enter next DP stage, execute for 6 hint sets/configurations
+2025-05-04 05:40:09 INFO     Plan is already known (according to hash)
+2025-05-04 05:40:09 INFO     Plan is already known (according to hash)
+2025-05-04 05:40:09 INFO     Plan is already known (according to hash)
+2025-05-04 05:40:17 INFO     Serialize a new measurement for query benchmark/queries/tpch/8.sql and the disabled knobs [enable_indexscan,enable_seqscan]
+2025-05-04 05:40:27 INFO     Serialize a new measurement for query benchmark/queries/tpch/8.sql and the disabled knobs [enable_indexscan,enable_seqscan]
+2025-05-04 05:40:28 INFO     Plan is already known (according to hash)
+2025-05-04 05:40:28 INFO     Plan is already known (according to hash)
+2025-05-04 05:40:28 INFO     Enter next DP stage, execute for 1 hint sets/configurations
+2025-05-04 05:40:28 INFO     Plan is already known (according to hash)
+2025-05-04 05:40:28 INFO     Found 9 duplicated query plans!
+2025-05-04 05:40:28 INFO     run Q9.sql...
+2025-05-04 05:40:28 INFO     Approximate query span for query: benchmark/queries/tpch/9.sql
+2025-05-04 05:40:28 INFO     Default plan hash: #-6090363380787988873
+2025-05-04 05:40:28 INFO     Failed query hash: #-3884599205072274107
+2025-05-04 05:40:28 INFO     There are 6 alternative plans
+2025-05-04 05:40:29 INFO     Found new hint-set: 
+2025-05-04 05:40:29 INFO     Found new hint-set: enable_hashagg
+2025-05-04 05:40:29 INFO     Found new hint-set: enable_hashjoin
+2025-05-04 05:40:29 INFO     Found new hint-set: enable_indexscan
+2025-05-04 05:40:29 INFO     Found new hint-set: enable_nestloop
+2025-05-04 05:40:29 INFO     Found new hint-set: enable_seqscan
+2025-05-04 05:40:29 INFO     Found new hint-set: enable_sort
+2025-05-04 05:40:29 INFO     Found new hint-set: enable_material,enable_hashjoin
+2025-05-04 05:40:29 INFO     Found new hint-set: enable_mergejoin,enable_hashjoin
+2025-05-04 05:40:29 INFO     Found new hint-set: enable_bitmapscan,enable_indexscan
+2025-05-04 05:40:29 INFO     Found new hint-set: enable_mergejoin,enable_nestloop
+2025-05-04 05:40:29 INFO     Found new hint-set: enable_mergejoin,enable_seqscan
+2025-05-04 05:40:29 INFO     Found new hint-set: enable_mergejoin,enable_material,enable_hashjoin
+2025-05-04 05:40:29 INFO     Found new hint-set: enable_material,enable_mergejoin,enable_hashjoin
+2025-05-04 05:40:29 INFO     Start exploring optimizer configs for query benchmark/queries/tpch/9.sql
+2025-05-04 05:40:29 INFO     Run 1 different configs
+2025-05-04 05:41:07 INFO     Serialize a new measurement for query benchmark/queries/tpch/9.sql and the disabled knobs [None]
+2025-05-04 05:41:35 INFO     Serialize a new measurement for query benchmark/queries/tpch/9.sql and the disabled knobs [None]
+2025-05-04 05:41:35 INFO     Enter next DP stage, execute for 9 hint sets/configurations
+2025-05-04 05:41:35 INFO     Plan is already known (according to hash)
+2025-05-04 05:42:44 INFO     Serialize a new measurement for query benchmark/queries/tpch/9.sql and the disabled knobs [enable_hashagg]
+2025-05-04 05:43:58 INFO     Serialize a new measurement for query benchmark/queries/tpch/9.sql and the disabled knobs [enable_hashagg]
+2025-05-04 05:44:29 INFO     Serialize a new measurement for query benchmark/queries/tpch/9.sql and the disabled knobs [enable_hashjoin]
+2025-05-04 05:44:55 INFO     Serialize a new measurement for query benchmark/queries/tpch/9.sql and the disabled knobs [enable_hashjoin]
+2025-05-04 05:45:27 INFO     Serialize a new measurement for query benchmark/queries/tpch/9.sql and the disabled knobs [enable_indexscan]
+2025-05-04 05:45:52 INFO     Serialize a new measurement for query benchmark/queries/tpch/9.sql and the disabled knobs [enable_indexscan]
+2025-05-04 05:46:30 INFO     Serialize a new measurement for query benchmark/queries/tpch/9.sql and the disabled knobs [enable_nestloop]
+2025-05-04 05:46:54 INFO     Serialize a new measurement for query benchmark/queries/tpch/9.sql and the disabled knobs [enable_nestloop]
+2025-05-04 05:46:54 INFO     Plan is already known (according to hash)
+2025-05-04 05:47:29 INFO     Serialize a new measurement for query benchmark/queries/tpch/9.sql and the disabled knobs [enable_seqscan]
+2025-05-04 05:48:07 INFO     Serialize a new measurement for query benchmark/queries/tpch/9.sql and the disabled knobs [enable_seqscan]
+2025-05-04 05:48:07 INFO     Plan is already known (according to hash)
+2025-05-04 05:48:07 INFO     Plan is already known (according to hash)
+2025-05-04 05:48:07 INFO     Enter next DP stage, execute for 10 hint sets/configurations
+2025-05-04 05:48:07 INFO     Plan is already known (according to hash)
+2025-05-04 05:48:07 INFO     Plan is already known (according to hash)
+2025-05-04 05:48:07 INFO     Plan is already known (according to hash)
+2025-05-04 05:48:07 INFO     Plan is already known (according to hash)
+2025-05-04 05:48:07 INFO     Plan is already known (according to hash)
+2025-05-04 05:48:07 INFO     Plan is already known (according to hash)
+2025-05-04 05:48:07 INFO     Plan is already known (according to hash)
+2025-05-04 05:48:07 INFO     Plan is already known (according to hash)
+2025-05-04 05:48:07 INFO     Plan is already known (according to hash)
+2025-05-04 05:48:07 INFO     Plan is already known (according to hash)
+2025-05-04 05:48:07 INFO     Enter next DP stage, execute for 10 hint sets/configurations
+2025-05-04 05:48:07 INFO     Plan is already known (according to hash)
+2025-05-04 05:48:07 INFO     Plan is already known (according to hash)
+2025-05-04 05:48:07 INFO     Plan is already known (according to hash)
+2025-05-04 05:48:08 INFO     Plan is already known (according to hash)
+2025-05-04 05:48:08 INFO     Plan is already known (according to hash)
+2025-05-04 05:48:08 INFO     Plan is already known (according to hash)
+2025-05-04 05:48:08 INFO     Plan is already known (according to hash)
+2025-05-04 05:50:08 CRITICAL Optimizer enable_hashjoin,enable_nestloop,enable_sort cannot be disabled for benchmark/queries/tpch/9.sql - skip this config. The error: canceling statement due to statement timeout
+
+2025-05-04 05:50:08 INFO     Plan is already known (according to hash)
+2025-05-04 05:50:08 INFO     Plan is already known (according to hash)
+2025-05-04 05:50:08 INFO     Found 23 duplicated query plans!

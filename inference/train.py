@@ -7,21 +7,53 @@ import storage
 import numpy as np
 import pickle
 from matplotlib import pyplot as plt
+import time
 
 from inference.performance_prediction import PerformancePrediction
 from inference import model
 from inference.net import DROPOUT
 from utils.custom_logging import logger
+from utils.disk_measurement import DiskIOMonitor
+from load.io_sql_utils import detect_peak_iops, calc_iops_thresholds 
+from load.cpu_utils import SystemMonitor
 
-
+global_query_path=""
 class AutoSteerInferenceException(Exception):
     """Exceptions raised in the inference mode"""
     pass
 
 
-def _load_data(bench=None, training_ratio=0.8):
+def _load_data(bench=None, training_ratio=0.9):
     """Load the training and test data for a specific benchmark"""
-    training_data, test_data = storage.experience(bench, training_ratio)
+    # system_monitor = SystemMonitor()
+    # system_monitor.start()
+    # time.sleep(10)
+    # system_monitor.stop()
+    
+    # cpu =  system_monitor.get_current_state()# "none_mid_high 반환 함수(현재 cpu 사용량 측정 함수)"
+    
+    # diskIOMonitor = DiskIOMonitor()
+    # diskIOMonitor.monitor_system_io()
+    # current_iops = diskIOMonitor.result['system'] # "현재 iops반환 -> interval 10(약 10초)간 iops average"
+    # r, w = detect_peak_iops("postgres", "dbbert")
+    # iops_measurement = calc_iops_thresholds(r+w) # "none_mid_high 반환 함수(최대 iops측정)" #dict
+    
+    # def return_current_iops_level():
+    #     iops = ""
+    #     if current_iops <= iops_measurement['low']:
+    #         iops = 'none'
+    #     elif current_iops <= iops_measurement['normal']:
+    #         iops = 'normal'
+    #     else:
+    #         iops = 'high'
+    #     return iops
+    
+    # iops_state = return_current_iops_level() # "iops_measuerment기준에 따라 어느 level인지 반환(current_iops)"
+
+    cpu = {'cpu_load': "MEDIUM"}
+    iops_state = "none"
+    print(cpu, iops_state)
+    training_data, test_data = storage.experience(bench, cpu['cpu_load'], iops_state, training_ratio) # cpu['cpu_load']
 
     x_train = [config.plan_json for config in training_data]
     y_train = [config.walltime for config in training_data]
@@ -81,6 +113,14 @@ def _train_and_save_model(preprocessor, filename, x_train, y_train, x_test, y_te
 
 
 def _evaluate_prediction(y, predictions, plans, query_path, is_training) -> PerformancePrediction:
+    print(f"[DEBUG] Evaluating query_path = {query_path}")
+    # global global_query_path
+    # global_query_path = query_path
+    print(f"[DEBUG] Loaded plans: {[p.num_disabled_rules for p in plans]}")
+    default_candidates = list(filter(lambda x: x.num_disabled_rules == 0, plans))
+    if not default_candidates:
+        print(f"[ERROR] No default plan (num_disabled_rules == 0) for {query_path}")
+        return 
     default_plan = list(filter(lambda x: x.num_disabled_rules == 0, plans))[0]
 
     logger.info('y:\t%s', '\t'.join([f'{_:.2f}' for _ in y]))
@@ -100,7 +140,13 @@ def _evaluate_prediction(y, predictions, plans, query_path, is_training) -> Perf
 
     # The best **alternative** query plan is either the first or the second one
     best_alt_plan_walltime = plans[0].walltime if plans[0].num_disabled_rules > 0 else plans[1].walltime
-    return PerformancePrediction(default_plan.walltime, plans[min_prediction_index].walltime, best_alt_plan_walltime, query_path, is_training)
+    return PerformancePrediction(
+        default_plan.walltime,
+        plans[min_prediction_index].walltime,
+        best_alt_plan_walltime,
+        query_path,
+        is_training
+    )
 
 
 def _choose_best_plans(query_plan_preprocessor, filename: str, test_configs: list[storage.Measurement], is_training: bool) -> list[PerformancePrediction]:
@@ -131,7 +177,8 @@ def _choose_best_plans(query_plan_preprocessor, filename: str, test_configs: lis
 
         predictions = bao_model.predict(x)
         performance_prediction = _evaluate_prediction(y, predictions, plans_and_estimates, query_path, is_training)
-        performance_predictions.append(performance_prediction)
+        if performance_prediction is not None:
+            performance_predictions.append(performance_prediction)
     return list(reversed(sorted(performance_predictions, key=lambda entry: entry.selected_plan_relative_improvement)))
 
 
@@ -161,21 +208,29 @@ def train_tcnn(connector, bench: str, retrain: bool, create_datasets: bool):
 
     # calculate absolute improvements for test and training sets
     def calc_improvements(title: str, dataset: list):
-        abs_runtime_bao = float(sum([x.selected_plan_runtime for x in dataset]))
-        abs_runtime_best_hs = float(sum([x.best_alt_plan_runtime for x in dataset]))
-        abs_runtime_test_default_plan = float(sum([x.default_plan_runtime for x in dataset]))
-
-        results = f'----------------------------------------\n' \
-                  f'{title}\n' \
-                  f'----------------------------------------\n' \
-                  f'Overall runtime of default plans: {abs_runtime_test_default_plan}\n' \
-                  f'Overall runtime of bao selected plans: {abs_runtime_bao}\n' \
-                  f'Overall runtime of best hs plans: {abs_runtime_best_hs}\n' \
-                  f'Test improvement rel. w/ Bao: {1.0 - (abs_runtime_bao / float(abs_runtime_test_default_plan)):.4f}\n' \
-                  f'Test improvement abs. w/ Bao: {abs_runtime_bao - abs_runtime_test_default_plan}\n' \
-                  f'Test improvement rel. of best alternative hs: {1.0 - (abs_runtime_best_hs / float(abs_runtime_test_default_plan)):.4f}\n' \
-                  f'Test improvement abs. of best alternative hs: {abs_runtime_best_hs - abs_runtime_test_default_plan}\n'
-        return results
+        """Calculate the improvements of the selected plans and the best plans wrt. the default plans"""
+        if not dataset:
+            return "No data available\n"
+        
+        default_plans = sum(x.default_plan_runtime for x in dataset)
+        bao_selected_plans = sum(x.selected_plan_runtime for x in dataset)
+        best_alt_plans = sum(x.best_alt_plan_runtime for x in dataset)
+        
+        bao_improvement_rel = (default_plans - bao_selected_plans) / default_plans
+        bao_improvement_abs = default_plans - bao_selected_plans
+        best_alt_improvement_rel = (default_plans - best_alt_plans) / default_plans
+        best_alt_improvement_abs = default_plans - best_alt_plans
+        
+        result = f"----------------------------------------\n{title}\n----------------------------------------\n"
+        result += f"Overall runtime of default plans: {default_plans}\n"
+        result += f"Overall runtime of bao selected plans: {bao_selected_plans}\n"
+        result += f"Overall runtime of best hs plans: {best_alt_plans}\n"
+        result += f"Test improvement rel. w/ Bao: {bao_improvement_rel:.4f}\n"
+        result += f"Test improvement abs. w/ Bao: {bao_improvement_abs}\n"
+        result += f"Test improvement rel. of best alternative hs: {best_alt_improvement_rel:.4f}\n"
+        result += f"Test improvement abs. of best alternative hs: {best_alt_improvement_abs}\n"
+        
+        return result
 
     with open(f'evaluation/results_{DROPOUT}.csv', 'a', encoding='utf-8') as f:
         f.write(calc_improvements('TEST SET', performance_test))
