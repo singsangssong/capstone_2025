@@ -1,2 +1,3 @@
 benchmark.log
 benchmark.sqlite
+io_load_temp/
