@@ -1,86 +1,71 @@
-# Auto-Steer
+#
+# 동적 리소스 환경에서 Auto-Steer 성능 분석
 
-> [!CAUTION]
-> **PROJECT NOT UNDER ACTIVE MANAGEMENT**
-> * This project will no longer be maintained by Intel.
-> * Intel has ceased development and contributions including, but not limited to, maintenance, bug fixes, new releases, or updates, to this project.  
-> * Intel no longer accepts patches to this project.  
-> * If you have an ongoing need to use this project, are interested in independently developing it, or would like to maintain patches for the open source software community, please create your own fork of this project.  
+## 1. 프로젝트 개요
 
-## License
+본 프로젝트는 데이터베이스 쿼리 최적화 엔진인 **Auto-Steer**가 다양한 시스템 부하 조건에서 얼마나 효율적으로 동작하는지 평가하고 개선하는 것을 목표로 합니다. 기존의 Auto-Steer가 정적인 환경에서 최적의 쿼리 실행 계획(Hint Set)을 찾는 데 중점을 두었다면, 본 프로젝트에서는 **CPU와 I/O(디스크) 부하가 실시간으로 변하는 동적 리소스 환경**에서도 최적의 성능을 낼 수 있도록 기능을 확장하고 검증합니다.
 
-This prototype implementation is licensed under the 'MIT license' (see LICENSE).
+이를 위해 CPU와 I/O 부하를 의도적으로 발생시키는 부하 생성기를 도입하고, 다양한 부하 조합 환경에서 Auto-Steer의 쿼리 최적화 성능을 측정 및 분석하는 자동화된 테스트 파이프라인을 구축했습니다.
 
-## Requirements
+## 2. 핵심 기능 및 변경 사항
 
-### Packages
+### 동적 부하 생성 모듈
 
-- sqlite3
-    - Statistics extension (we provide a download script: `sqlean-extensions/download.sh`)
-- python3 (at least version 3.10)
+-   **CPU 부하 생성 (`burden/cpu_load_postgresql.py`):**
+    -   PostgreSQL 데이터베이스에 의도적으로 복잡한 분석 쿼리를 병렬로 실행하여 목표 CPU 사용률(예: 20%, 40%, 70%)을 안정적으로 유지하는 `LoadController`를 구현했습니다.
+    -   이를 통해 실제 운영 환경에서 발생할 수 있는 다양한 수준의 CPU 압박 상황을 시뮬레이션합니다.
 
-### Python3 requirements
+-   **I/O 부하 생성 (`load/io_sql_load.py`):**
+    -   데이터베이스에 대량의 읽기/쓰기 작업을 발생시켜 I/O 대역폭을 점유하는 부하 생성기를 활용합니다.
+    -   부하 수준은 `none`, `normal`, `high` 세 단계로 나누어, I/O 경합이 쿼리 실행 시간에 미치는 영향을 분석합니다.
 
-- Install python requirements using the file `pip3 install -r requirements.txt`
+### 실험 자동화 및 데이터 수집
 
-## Run Auto-Steer
+-   **실험 자동화 스크립트 (`main.py`):**
+    -   CPU 부하 3단계(20%, 40%, 70%)와 I/O 부하 3단계(none, normal, high)를 조합한 **총 9가지의 동적 리소스 환경**을 구성했습니다.
+    -   이중 반복문 구조를 통해 9가지 모든 환경에서 자동으로 벤치마크 쿼리를 실행하고 성능을 측정하는 파이프라인을 구축했습니다.
 
-### Database Systems
+-   **성능 데이터 수집 (`storage.py`, `schema.sql`):**
+    -   각 쿼리 실행 결과와 함께 당시의 `cpu_load`와 `io_state`를 데이터베이스(`measurements` 테이블)에 기록하도록 스키마를 확장했습니다.
+    -   이를 통해 수집된 데이터를 부하 수준별로 그룹화하여 심층적으로 성능을 분석할 수 있습니다.
 
-#### Auto-Steer-G already supports five open-source database systems:
+## 3. 프로젝트 실행 과정 및 트러블슈팅
 
-- PostgreSQL
-    - We tested AutoSteer with PostgreSQL 13
-- PrestoDB
-    - PrestoDB does not expose many rewrite rules. Therefore, the following patch exposes the top-7 hints we found in
-      our experiments.
-    - Get the most recent version of [PrestoDB](https://github.com/prestodb/presto)
-    - Apply the PrestoDB patch : `git apply Presto-disable-optimizers-through-session-properties.patch`
-    - Build PrestoDB from source and start the server
-- MySQL
-    - We tested AutoSteer with MySQL 8
-- DuckDB
-    - Install the DuckDB-python package via `pip`
-- SparkSQL
-    - We run SparkSQL using the official Docker image of its most recent version
+프로젝트를 진행하며 다음과 같은 주요 기술적 문제들을 해결했습니다.
 
-#### DBMS Configuration
+-   **CPU 부하 제어 불안정:**
+    -   **문제:** `LoadController`가 초기 구현에서 목표치(예: 40%)를 훨씬 초과하는 CPU 사용률(최대 770%)을 보이는 문제가 발생했습니다.
+    -   **해결:** 부하 생성 쿼리의 병렬 실행 스레드 수를 줄이고 쿼리 실행 간격을 조절하여, 보다 안정적이고 예측 가능한 CPU 부하를 생성하도록 로직을 개선했습니다.
 
-Depending on your custom installation and DBMS setup, add the required information to the `configs/<dbms>.cfg`-file.
+-   **Git 대용량 파일 Push 오류:**
+    -   **문제:** I/O 부하 테스트용으로 생성된 임시 파일(100MB 초과)이 Git 캐시에 포함되어 원격 저장소로 Push가 거부되었습니다.
+    -   **해결:**
+        1.  `io_load_temp/` 디렉터리를 `.gitignore`에 추가하여 향후 추적을 방지했습니다.
+        2.  `git rm --cached` 명령어가 동작하지 않아, `git filter-branch`를 사용하여 Git 히스토리에서 해당 대용량 파일들을 완전히 제거함으로써 문제를 해결했습니다.
 
-### Executing Auto-Steer's Training Mode
+-   **데이터베이스 관련 오류:**
+    -   **문제:** PostgreSQL 공유 메모리 부족(`No space left on device`), `NOT NULL` 제약 조건 위반, SQL 문법 오류(`GROUP BY` 등)가 발생했습니다.
+    -   **해결:** PostgreSQL의 메모리 설정을 조정하고, 데이터 저장 로직(`storage.py`)에서 `cpu_load` 값을 명시적으로 전달하도록 수정했으며, 부하 생성 스크립트 내 SQL 쿼리들을 수정하여 오류를 해결했습니다.
 
-Auto-Steer's training mode execution consists of two steps:
+## 4. 실행 방법
 
-1. (A) Approximate the query span, and (B) run the dynamic programming-based hint-set exploration
-   ```commandline
-   main.py --training --database {postgres|presto|mysql|duckdb|spark} --benchmark {path-to-sql-queries}
-   ```
-2. By now, Auto-Steer persisted all generated training data (e.g. query plans and execution statistics) in a
-   sqlite-database that can be found under `results/<database>.sqlite`.
-3. For PrestoDB query plans, we implemented the preprocessing of query plans for tree convolutional neural networks.
-   ```commandline
-   main.py --inference --database presto --benchmark {path-to-sql-queries}
-   ```
-4. The inference results can be found in the directory `evaluation`.
+다음 명령어를 사용하여 동적 부하 환경에서 Auto-Steer 학습(training) 모드를 실행할 수 있습니다.
 
-## Code Formatting
-
-- All python files will be checked using `pylint` before they can be comitted. The code style is primarily based on
-  the [Google Python Style Guide](https://google.github.io/styleguide/pyguide.html).
-  However, it allows longer lines (160 characters).
-- Please, install and run pylint (there is also a git pre-commit hook) before committing
-
-## Cite
-If you use AutoSteer in your work, please cite us:
+```bash
+python main.py --database postgres --benchmark ./tpch --training
 ```
-@article{autosteer2023,
-    author       = {Anneser, Christoph and Tatbul, Nesime and Cohen, David and Xu, Zhenggang and Pandian, Prithviraj and Laptev, Nikolay and Marcus, Ryan},
-    date         = {2023},
-    journaltitle = {PVLDB},
-    number       = {12},
-    pages        = {3515--3527},
-    title        = {AutoSteer: Learned Query Optimization for Any SQL Database},
-    volume       = {16},
-}
-```
+
+-   위 스크립트를 실행하면 `main.py`에 정의된 CPU 부하(20%, 40%, 70%)와 I/O 부하(none, normal, high)의 9가지 조합에 대해 순차적으로 TPC-H 벤치마크 쿼리들이 실행됩니다.
+-   각 실행 결과(쿼리 실행 시간, 사용된 힌트 셋 등)는 부하 수준 태그와 함께 데이터베이스에 저장됩니다.
+
+## 5. 성능 개선 예시
+
+본 프로젝트를 통해 구축된 동적 부하 환경에서 Auto-Steer는 시스템의 리소스 상태에 따라 최적의 쿼리 실행 계획(Hint Set)을 찾아냅니다. 아래는 TPC-H 벤치마크의 15번 쿼리에 대한 성능 개선 예시입니다.
+
+| Query | Hint_Set1                                    | Time_Set1 (s) | Hint_Set2            | Time_Set2 (s) | 성능 향상 |
+| :---- | :------------------------------------------- | :------------ | :------------------- | :------------ | :-------- |
+| 15    | `['enable_gathermerge', 'enable_nestloop']` | 5.590         | `['enable_hashagg']` | 1.379         | **4.05배** |
+
+위 표에서 볼 수 있듯이, Auto-Steer는 `Hint_Set1` 대신 `Hint_Set2`(`['enable_hashagg']`)를 최적의 실행 계획으로 선택함으로써 **쿼리 실행 시간을 5.59초에서 1.379초로 단축**시켰습니다. 이는 약 **4.05배의 성능 향상**을 의미합니다.
+
+이러한 결과는 Auto-Steer가 다양한 부하 조건 속에서도 각 쿼리의 특성과 시스템 상태를 종합적으로 고려하여 효과적인 힌트 셋을 찾아낼 수 있음을 보여주는 대표적인 사례입니다.
