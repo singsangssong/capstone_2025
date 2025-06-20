@@ -35,7 +35,7 @@ Auto-Steer는 `training`과 `inference` 두 가지 핵심 모드를 제공합니
 ### Training 모드
 
 -   **목적:** 어떤 부하 조건에서 어떤 힌트 셋이 최적의 성능을 내는지 학습 데이터를 수집하는 단계입니다.
--   **동작:** `main.py`에 정의된 9가지 부하 조합(CPU 3단계 x I/O 3단계) 모두에서 TPC-H 벤치마크 쿼리를 실행합니다. 각 실행 결과(쿼리 실행 시간, 힌트 셋, 부하 상태)는 데이터베이스에 저장되어 머신러닝 모델 학습에 사용됩니다.
+-   **동작:** `main.py`에 정의된 9가지(CPU 3단계 x I/O 3단계) 가능한 조합이 있으며, TPC-H 벤치마크 쿼리를 실행할 때 부하에 맞춰서 부하 레벨이 저장됩니다. 각 실행 결과(쿼리 실행 시간, 힌트 셋, 부하 상태)는 데이터베이스에 저장되어 머신러닝 모델 학습에 사용됩니다.
 
 ```bash
 python main.py --training --database postgres --benchmark benchmark/queries/tpch
